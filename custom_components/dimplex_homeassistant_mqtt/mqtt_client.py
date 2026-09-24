@@ -269,10 +269,16 @@ class DimplexMqttClient:
                 if not isinstance(item, dict):
                     continue
 
-                name = item.get("name", key)
+                raw_id = item.get("id") or key
+                name = item.get("name") or raw_id
                 raw_value = item.get("value")
+                converted = self._convert_typed_value(raw_value, data_type)
 
-                result[name] = self._convert_typed_value(raw_value, data_type)
+                for candidate in {str(key), str(raw_id), str(name)}:
+                    if candidate:
+                        result[candidate] = converted
+                        if candidate[-1:] in ("i", "u"):
+                            result[candidate[:-1] + ("u" if candidate[-1] == "i" else "i")] = converted
 
         return result
 

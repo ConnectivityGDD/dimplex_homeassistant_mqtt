@@ -12,7 +12,12 @@ from homeassistant.components.sensor import (
     SensorEntityDescription,
     SensorStateClass,
 )
-from homeassistant.const import UnitOfTemperature
+from homeassistant.const import (
+    PERCENTAGE,
+    UnitOfEnergy,
+    UnitOfTemperature,
+    UnitOfTime,
+)
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import DOMAIN
@@ -23,6 +28,9 @@ TRANSLATION_DIR = Path(__file__).parent / "translations"
 
 DEVICE_CLASSES = {
     "temperature": SensorDeviceClass.TEMPERATURE,
+    "duration": SensorDeviceClass.DURATION,
+    "energy": SensorDeviceClass.ENERGY,
+    "humidity": SensorDeviceClass.HUMIDITY,
 }
 
 STATE_CLASSES = {
@@ -33,12 +41,20 @@ STATE_CLASSES = {
 
 UNITS = {
     "celsius": UnitOfTemperature.CELSIUS,
+    "C": UnitOfTemperature.CELSIUS,
+    "h": UnitOfTime.HOURS,
+    "min": UnitOfTime.MINUTES,
+    "day": UnitOfTime.DAYS,
+    "kWh": UnitOfEnergy.KILO_WATT_HOUR,
+    "%": PERCENTAGE,
+    "rpm": "rpm",
 }
 
 
 @dataclass(frozen=True, kw_only=True)
 class DimplexMqttSensorEntityDescription(SensorEntityDescription):
     scale: float = 1.0
+    installer_only: bool = False
 
 
 def _load_translation_file(language: str) -> dict[str, Any]:
@@ -89,13 +105,23 @@ def _walk_sensor_config(node):
     if not isinstance(node, dict):
         return
 
+    # 1. Wenn der Node direkt ein 'id'-Feld besitzt (z. B. "id": "1301a")
     if "id" in node:
         if node.get("read_only", True) and not str(node["id"]).endswith("d"):
             yield node
         return
 
-    for value in node.values():
-        yield from _walk_sensor_config(value)
+    # 2. Rekursiv durch Dicts iterieren (für Kategorien wie "energy", "heating")
+    for key, value in node.items():
+        if isinstance(value, dict):
+            # Falls das Unter-Dict keinen eigenen "id"-Key hat (unsere berechneten Keys)
+            if "id" not in value and "key" in value:
+                value_copy = dict(value)
+                value_copy["id"] = key
+                if value_copy.get("read_only", True) and not str(key).endswith("d"):
+                    yield value_copy
+            else:
+                yield from _walk_sensor_config(value)
 
 
 def _load_sensor_descriptions():
@@ -105,14 +131,20 @@ def _load_sensor_descriptions():
     descriptions = []
 
     for item in _walk_sensor_config(config):
+        enabled = item.get("enabled_default", True)
+        if "entity_registry_enabled_default" in item:
+            enabled = item["entity_registry_enabled_default"]
+
         descriptions.append(
             DimplexMqttSensorEntityDescription(
                 key=item["id"],
-                translation_key=item.get("translation_key", item["key"]),
+                translation_key=item.get("translation_key", item.get("key", item["id"])),
                 device_class=DEVICE_CLASSES.get(item.get("device_class")),
                 native_unit_of_measurement=UNITS.get(item.get("unit")),
                 state_class=STATE_CLASSES.get(item.get("state_class")),
                 scale=item.get("scale", 1.0),
+                installer_only=item.get("installer_only", item.get("hidden", False)),
+                entity_registry_enabled_default=enabled,
             )
         )
 
@@ -126,12 +158,34 @@ async def async_setup_entry(hass, entry, async_add_entities):
     coordinator: DimplexMqttCoordinator = hass.data[DOMAIN][entry.entry_id]
 
     added: set[str] = set()
+    installer_access = coordinator.config.get("installer_access", False)
+
+    # Roh-Register der einzelnen Stellen, die NICHT als eigene Sensoren angelegt werden sollen
+    IGNORED_RAW_KEYS = {
+        # Elektrische Energie Einzelstellen
+        "1300u", "1301u", "1302u",
+        "1303u", "1304u", "1305u",
+        "1306u", "1307u", "1308u",
+        # WMZ Einzelstellen
+        "1672i", "1673i", "1674i",  # Heizen
+        "1660i", "1661i", "1662i",  # Gesamt
+        "1663i", "1664i", "1665i",  # Warmwasser
+        "1669i", "1670i", "1671i",  # Kühlung / Weitere
+    }
 
     def add_new_sensors():
         data = coordinator.data or {}
         new_entities = []
 
         for description in SENSOR_DESCRIPTIONS:
+            # Ignoriere die Roh-Register der Einzelstellen
+            if description.key in IGNORED_RAW_KEYS:
+                continue
+
+            if description.installer_only and not installer_access:
+                continue
+
+            # Sensor wird NUR angelegt, wenn er tatsächlich im Data-Dict vorhanden ist
             if description.key in data and description.key not in added:
                 added.add(description.key)
                 new_entities.append(DimplexMqttSensor(coordinator, description))
@@ -141,6 +195,7 @@ async def async_setup_entry(hass, entry, async_add_entities):
 
     add_new_sensors()
     coordinator.async_add_listener(add_new_sensors)
+
 
 class DimplexMqttSensor(CoordinatorEntity[DimplexMqttCoordinator], SensorEntity):
     entity_description: DimplexMqttSensorEntityDescription
@@ -155,7 +210,8 @@ class DimplexMqttSensor(CoordinatorEntity[DimplexMqttCoordinator], SensorEntity)
 
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.device_id}_{description.key}"
-        self._attr_translation_key = description.translation_key
+        self._attr_translation_key = description.translation_key or description.key
+
         self._attr_device_info = {
             "identifiers": {(DOMAIN, coordinator.device_id)},
             "name": "Dimplex MQTT Gateway",
@@ -165,6 +221,8 @@ class DimplexMqttSensor(CoordinatorEntity[DimplexMqttCoordinator], SensorEntity)
 
     @property
     def available(self) -> bool:
+        if not self.coordinator.last_update_success:
+            return False
         data = self.coordinator.data or {}
         return self.entity_description.key in data
 

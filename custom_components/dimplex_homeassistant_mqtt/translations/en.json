@@ -1,4 +1,31 @@
 {
+  "config": {
+    "step": {
+      "user": {
+        "title": "Dimplex MQTT Setup",
+        "description": "Please enter the connection details for your heat pump.",
+        "data": {
+          "host": "Host / IP Address",
+          "password": "Password",
+          "installer_access": "Installer Access"
+        }
+      },
+      "reconfigure": {
+        "title": "Reconfigure Dimplex MQTT",
+        "data": {
+          "host": "Host / IP Address",
+          "password": "Password",
+          "installer_access": "Installer Access"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Connection failed or invalid credentials."
+    },
+    "abort": {
+      "reconfigure_successful": "Reconfiguration was successful."
+    }
+  },
   "entity": {
     "sensor": {
       "E_Aussen_T": {
@@ -7,11 +34,116 @@
       "E_Rueckl_T": {
         "name": "Return Temperature"
       },
+      "P_HK1_WK": {
+        "name": "1st Heating Circuit Parallel Shift"
+      },
+      "P_HK2_WK": {
+        "name": "2nd Heating Circuit Parallel Shift"
+      },
+      "P_HK3_WK": {
+        "name": "3rd Heating Circuit Parallel Shift"
+      },
       "E_Vorl_T": {
         "name": "Flow Temperature"
       },
+      "E_Rueckl_Soll_T": {
+        "name": "Return Temperature Setpoint"
+      },
+      "E_Ww_Soll_T": {
+        "name": "Hot Water Temperature Setpoint"
+      },
+      "E_Wq_Ein_T": {
+        "name": "Heat Source Inlet Temperature"
+      },
+      "E_Wq_Aus_T": {
+        "name": "Heat Source Outlet Temperature"
+      },
+      "E_HK2_Soll_T": {
+        "name": "Heating Circuit 2 Setpoint Temperature"
+      },
+      "E_HK2_T": {
+        "name": "Heating Circuit 2 Temperature"
+      },
+      "E_HK3_Soll_T": {
+        "name": "Heating Circuit 3 Setpoint Temperature"
+      },
+      "E_HK3_T": {
+        "name": "Heating Circuit 3 Temperature"
+      },
+      "E_Raum1_T": {
+        "name": "Room Temperature 1"
+      },
+      "E_Raum2_T": {
+        "name": "Room Temperature 2"
+      },
+      "E_Raum1_Feuchte": {
+        "name": "Room Humidity 1"
+      },
+      "E_Raum2_Feuchte": {
+        "name": "Room Humidity 2"
+      },
+      "E_Kuehlen_Vorl_T": {
+        "name": "Cooling Flow Temperature"
+      },
+      "E_Kuehlen_Rueckl_T": {
+        "name": "Cooling Return Temperature"
+      },
+      "E_Kuehlen_Primaer_T": {
+        "name": "Cooling Primary Circuit Temperature"
+      },
+      "E_Kollektor_T": {
+        "name": "Collector Temperature"
+      },
+      "E_Solarspeicher_T": {
+        "name": "Solar Storage Temperature"
+      },
+      "E_Lueftung_Aussen_T": {
+        "name": "Ventilation Outdoor Temperature"
+      },
+      "E_Zuluft_T": {
+        "name": "Supply Air Temperature"
+      },
+      "E_Abluft_T": {
+        "name": "Extract Air Temperature"
+      },
+      "E_Fortluft_T": {
+        "name": "Exhaust Air Temperature"
+      },
+      "E_Zuluft_Drehzahl": {
+        "name": "Supply Fan Speed"
+      },
+      "E_Abluft_Drehzahl": {
+        "name": "Extract Fan Speed"
+      },
       "E_Ww_Fuehl": {
         "name": "Hot Water Temperature"
+      },
+      "E_Waermemenge_Heizen_1_4": {
+        "name": "Heat Quantity Heating Digits 1-4"
+      },
+      "E_Waermemenge_Heizen_5_8": {
+        "name": "Heat Quantity Heating Digits 5-8"
+      },
+      "E_Waermemenge_Heizen_9_12": {
+        "name": "Heat Quantity Heating Digits 9-12"
+      },
+      "E_Waermemenge_WW_1_4": {
+        "name": "Heat Quantity Hot Water Digits 1-4"
+      },
+      "E_Waermemenge_WW_5_8": {
+        "name": "Heat Quantity Hot Water Digits 5-8"
+      },
+      "E_Waermemenge_WW_9_12": {
+        "name": "Heat Quantity Hot Water Digits 9-12"
+      },
+      "E_Waermemenge_Schwimmbad_1_4": {
+        "name": "Heat Quantity Swimming Pool Digits 1-4"
+      },
+      "E_Waermemenge_Schwimmbad_5_8": {
+        "name": "Heat Quantity Swimming Pool Digits 5-8"
+      },
+      "E_Waermemenge_Schwimmbad_9_12": {
+        "name": "Heat Quantity Swimming Pool Digits 9-12"
       },
       "Anz_Status_Wert": {
         "name": "Heat Pump Status",
@@ -128,17 +260,143 @@
           "2": "Red",
           "3": "Plus"
         }
+      },
+      "B_Verdichter_1_Std": {
+        "name": "Compressor 1 Runtime"
+      },
+      "B_Primaerpumpe_Std": {
+        "name": "Primary Pump Runtime"
+      },
+      "B_Heizungspumpe_Std": {
+        "name": "Heating Pump Runtime"
+      },
+      "B_Zusatzpumpe_Std": {
+        "name": "Auxiliary Pump Runtime"
+      },
+      "B_Warmwasserpumpe_Std": {
+        "name": "Hot Water Pump Runtime"
+      },
+      "B_Verdichter_1_Std_Alt": {
+        "name": "Compressor 1 Runtime (Register 1380)"
+      },
+      "B_Verdichter_2_Std": {
+        "name": "Compressor 2 Runtime"
+      },
+      "B_Primaerpumpe_Ventilator_Std": {
+        "name": "Primary Pump / Fan Runtime"
+      },
+      "B_Waermeerzeuger_2_Std": {
+        "name": "2nd Heat Generator Runtime"
+      },
+      "B_Heizungspumpe_2_Std": {
+        "name": "Heating Pump 2 Runtime"
+      },
+      "B_Warmwasserpumpe_Std_Alt": {
+        "name": "Hot Water Pump Runtime (Register 1386)"
+      },
+      "B_Flanschheizung_Std": {
+        "name": "Flange Heater Runtime"
+      },
+      "B_Schwimmbadpumpe_Std": {
+        "name": "Swimming Pool Pump Runtime"
+      },
+      "B_Zusatzumwaelzpumpe_Std_Alt": {
+        "name": "Auxiliary Pump Runtime (Register 1390)"
+      },
+      "C_Verdichter_1_Gesamt": {
+        "name": "Compressor 1 Cycles"
+      },
+      "E_Erzeugt_Heizen": {
+        "name": "Generated Heating Energy"
+      },
+      "E_Erzeugt_Heizen_Stellen_5_8": {
+        "name": "Generated Heating Energy Digits 5-8"
+      },
+      "E_Erzeugt_Heizen_Stellen_9_12": {
+        "name": "Generated Heating Energy Digits 9-12"
+      },
+      "E_Erzeugt_Heizen_Ges": {
+        "name": "Generated Heating Energy Total"
+      },
+      "E_Erzeugt_Heizen_Ges_Stellen_5_8": {
+        "name": "Generated Heating Energy Total Digits 5-8"
+      },
+      "E_Erzeugt_Heizen_Ges_Stellen_9_12": {
+        "name": "Generated Heating Energy Total Digits 9-12"
+      },
+      "E_Erzeugt_WW": {
+        "name": "Generated Hot Water Energy"
+      },
+      "E_Erzeugt_WW_Stellen_1_4": {
+        "name": "Generated Hot Water Energy Digits 1-4"
+      },
+      "E_Erzeugt_WW_Stellen_5_8": {
+        "name": "Generated Hot Water Energy Digits 5-8"
+      },
+      "E_Erzeugt_WW_Ges": {
+        "name": "Generated Hot Water Energy Total"
+      },
+      "E_Erzeugt_WW_Ges_Stellen_1_4": {
+        "name": "Generated Hot Water Energy Total Digits 1-4"
+      },
+      "E_Erzeugt_WW_Ges_Stellen_5_8": {
+        "name": "Generated Hot Water Energy Total Digits 5-8"
+      },
+      "E_Erzeugt_WW_Ges_Stellen_9_12": {
+        "name": "Generated Hot Water Energy Total Digits 9-12"
+      },
+      "E_Erzeugt_WW_Ges_Stellen_5_8_alt": {
+        "name": "Generated Hot Water Energy Total Digits 5-8 (Alt)"
+      },
+      "E_Erzeugt_WW_Ges_Stellen_9_12_alt": {
+        "name": "Generated Hot Water Energy Total Digits 9-12 (Alt)"
+      },
+      "E_Waermemenge_Heizen": {
+        "name": "Heat Quantity Heating"
+      },
+      "E_Waermemenge_WW": {
+        "name": "Heat Quantity Hot Water"
+      },
+      "E_Waermemenge_Schwimmbad": {
+        "name": "Heat Quantity Swimming Pool"
+      },
+      "E_Erzeugt_Heizen_Stellen_1_4": {
+        "name": "Generated Heating Energy Digits 1-4"
+      },
+      "E_Erzeugt_Heizen_Ges_Stellen_1_4": {
+        "name": "Generated Heating Energy Total Digits 1-4"
+      },
+      "energy_heating_total": {
+        "name": "Total Electrical Energy Heating"
+      },
+      "energy_hot_water_total": {
+        "name": "Total Electrical Energy Hot Water"
+      },
+      "energy_pool_total": {
+        "name": "Total Electrical Energy Swimming Pool"
+      },
+      "energy_wmz_res_total": {
+        "name": "Total Generated Heat Quantity"
+      },
+      "energy_wmz_1_total": {
+        "name": "Generated Heat Quantity Heating"
+      },
+      "energy_wmz_2_total": {
+        "name": "Total Generated Heat Quantity Heating"
+      },
+      "energy_wmz_3_total": {
+        "name": "Total Generated Heat Quantity Hot Water"
       }
     },
     "number": {
       "P_HK1_WK": {
-        "name": "1. Heating circuit parallel shift"
+        "name": "1st Heating Circuit Parallel Shift"
       },
       "P_HK2_WK": {
-        "name": "2. Heating circuit parallel shift"
+        "name": "2nd Heating Circuit Parallel Shift"
       },
       "P_HK3_WK": {
-        "name": "3. Heating circuit parallel shift"
+        "name": "3rd Heating Circuit Parallel Shift"
       },
       "P_WW_SOLL": {
         "name": "Hot Water Setpoint"
@@ -148,6 +406,60 @@
       },
       "P_WW_MIN_TEMP": {
         "name": "Minimum Hot Water Temperature"
+      },
+      "P_WW_Hysterese": {
+        "name": "Hot Water Hysteresis"
+      },
+      "P_HK1_Raum_T": {
+        "name": "Room Temperature Setpoint Heating Circuit 1"
+      },
+      "P_HK1_Festwert_T": {
+        "name": "Fixed Setpoint Temperature Heating Circuit 1"
+      },
+      "P_HK1_Heizkurvenendpunkt": {
+        "name": "Heating Curve Endpoint Heating Circuit 1"
+      },
+      "P_HK1_Hysterese": {
+        "name": "Heating Circuit 1 Hysteresis"
+      },
+      "P_HK1_Kuehlung_15": {
+        "name": "Cooling 15 °C Heating Circuit 1"
+      },
+      "P_HK1_Kuehlung_35": {
+        "name": "Cooling 35 °C Heating Circuit 1"
+      },
+      "P_HK2_Heizkurvenendpunkt": {
+        "name": "Heating Curve Endpoint Heating Circuit 2"
+      },
+      "P_HK2_Festwert_T": {
+        "name": "Fixed Setpoint Temperature Heating Circuit 2"
+      },
+      "P_WZE_Mischer_Hysterese": {
+        "name": "2nd Heat Generator Mixer Hysteresis"
+      },
+      "P_WZE_Grenztemp_Parallel": {
+        "name": "Parallel 2nd Heat Generator Limit Temperature"
+      },
+      "P_WZE_Grenztemp_Alternativ": {
+        "name": "Alternative 2nd Heat Generator Limit Temperature"
+      },
+      "P_HK3_Heizkurvenendpunkt": {
+        "name": "Heating Curve Endpoint Heating Circuit 3"
+      },
+      "P_HK3_Festwert_T": {
+        "name": "Fixed Setpoint Temperature Heating Circuit 3"
+      },
+      "P_Anzahl_Partystunden": {
+        "name": "Number of Party Hours"
+      },
+      "P_Anzahl_Urlaubstage": {
+        "name": "Number of Vacation Days"
+      },
+      "P_Lueftung_Stufen": {
+        "name": "Ventilation Level"
+      },
+      "P_Lueftung_Stosslueften": {
+        "name": "Boost Ventilation Duration"
       }
     },
     "binary_sensor": {
@@ -157,8 +469,14 @@
       "A_VD1": {
         "name": "Compressor 1"
       },
+      "A_VD2": {
+        "name": "Compressor 2"
+      },
       "A_VEN": {
         "name": "Fan (M2)"
+      },
+      "A_WZE2": {
+        "name": "2nd Heat Generator"
       },
       "A_PUP": {
         "name": "Primary Pump (M11)"
@@ -166,11 +484,23 @@
       "A_HUP1": {
         "name": "Heating Pump (M13)"
       },
+      "A_Mischer1_Auf": {
+        "name": "Heating Circuit 1 Mixer Open"
+      },
+      "A_Mischer1_Zu": {
+        "name": "Heating Circuit 1 Mixer Close"
+      },
       "A_HUP2": {
         "name": "Heating Pump (M15)"
       },
       "A_HUP3": {
         "name": "Heating Pump (M20)"
+      },
+      "A_Schwimmbadpumpe": {
+        "name": "Swimming Pool Pump"
+      },
+      "A_Kuehlpumpe": {
+        "name": "Cooling Pump"
       },
       "A_ZUP": {
         "name": "Auxiliary Pump (M16)"
@@ -180,6 +510,51 @@
       },
       "A_STF": {
         "name": "Fault H5"
+      },
+      "A_Flanschheizung": {
+        "name": "Flange Heater"
+      },
+      "A_Primaerpumpe_Kuehlen": {
+        "name": "Cooling Primary Pump"
+      },
+      "A_Raumthermostate_Umschaltung": {
+        "name": "Room Thermostat Heating/Cooling Changeover"
+      },
+      "A_Mischer_Bivalent_Auf": {
+        "name": "Bivalent Mixer Open"
+      },
+      "A_Mischer_Bivalent_Zu": {
+        "name": "Bivalent Mixer Close"
+      },
+      "A_Mischer_Regenerativ_Auf": {
+        "name": "Regenerative Mixer Open"
+      },
+      "A_Mischer_Regenerativ_Zu": {
+        "name": "Regenerative Mixer Close"
+      },
+      "A_Mischer2_Auf": {
+        "name": "Heating Circuit 2 Mixer Open"
+      },
+      "A_Mischer2_Zu": {
+        "name": "Heating Circuit 2 Mixer Close"
+      },
+      "A_Mischer3_Auf": {
+        "name": "Heating Circuit 3 Mixer Open"
+      },
+      "A_Mischer3_Zu": {
+        "name": "Heating Circuit 3 Mixer Close"
+      },
+      "E_Smart_Grid_1": {
+        "name": "Smart Grid Input 1"
+      },
+      "E_Smart_Grid_2": {
+        "name": "Smart Grid Input 2"
+      },
+      "E_EVU_Sperre": {
+        "name": "Utility Lockout"
+      },
+      "E_Sperre_Extern": {
+        "name": "External Lockout"
       }
     },
     "select": {
@@ -190,7 +565,7 @@
           "1": "Winter",
           "2": "Vacation",
           "3": "Party",
-          "4": "Second Heat Generator",
+          "4": "2nd Heat Generator",
           "5": "Cooling (if available)",
           "6": "Automatic"
         }

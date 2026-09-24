@@ -22,6 +22,7 @@ class DimplexMqttSelectEntityDescription(
 ):
     id: str
     raw_options: list[str]
+    hidden: bool = False
 
 def _load_translation_file(language: str) -> dict[str, Any]:
     path = TRANSLATION_DIR / f"{language}.json"
@@ -79,6 +80,7 @@ def _load_select_descriptions():
                 id=item["id"],
                 translation_key=item["key"],
                 raw_options=raw_options,
+                hidden=item.get("hidden", False),
             )
         )
 
@@ -102,6 +104,10 @@ async def async_setup_entry(
         new_entities = []
 
         for description in SELECT_DESCRIPTIONS:
+            if description.hidden and not coordinator.config.get(
+                "installer_access", False
+            ):
+                continue
             if (
                 description.id in data
                 and description.id not in added
@@ -130,7 +136,7 @@ class DimplexMqttSelect(
         DimplexMqttSelectEntityDescription
     )
 
-    _attr_has_entity_name = True
+    _attr_has_entity_name = False
 
     def __init__(
         self,
@@ -141,6 +147,19 @@ class DimplexMqttSelect(
 
         self.entity_description = description
         self._attr_translation_key = description.translation_key
+        translations = TRANSLATIONS.get(
+            (coordinator.hass.config.language or "en").split("-")[0],
+            TRANSLATIONS.get("en", {}),
+        )
+        entities = translations.get("entity", {})
+        self._attr_name = description.translation_key
+        for category in ("select", "sensor", "number", "binary_sensor"):
+            name = entities.get(category, {}).get(
+                description.translation_key, {}
+            ).get("name")
+            if name is not None:
+                self._attr_name = name
+                break
         self._attr_unique_id = f"{coordinator.device_id}_{description.id}"
         self._attr_device_info = {
             "identifiers": {(DOMAIN, coordinator.device_id)},

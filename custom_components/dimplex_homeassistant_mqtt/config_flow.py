@@ -12,6 +12,8 @@ from homeassistant.const import CONF_HOST, CONF_PASSWORD
 
 from .const import DOMAIN, MQTT_PORT, MQTT_USERNAME
 
+CONF_INSTALLER_ACCESS = "installer_access"
+
 
 def test_mqtt_connection(data: dict) -> str | None:
     """Return None if connection is OK, otherwise return an error key."""
@@ -114,11 +116,60 @@ class DimplexMqttConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             {
                 vol.Required(CONF_HOST, default="192.168.0.99"): str,
                 vol.Required(CONF_PASSWORD): str,
+                vol.Optional(CONF_INSTALLER_ACCESS, default=False): bool,
             }
         )
 
         return self.async_show_form(
             step_id="user",
+            data_schema=schema,
+            errors=errors,
+        )
+
+    async def async_step_reconfigure(self, user_input=None):
+        """Handle reconfiguration of an existing entry."""
+        entry = self._get_reconfigure_entry()
+        errors = {}
+
+        if user_input is not None:
+            data = dict(entry.data)
+            data.update(user_input)
+
+            if not user_input.get(CONF_PASSWORD):
+                data[CONF_PASSWORD] = entry.data[CONF_PASSWORD]
+
+            result = await self.hass.async_add_executor_job(
+                test_mqtt_connection,
+                data,
+            )
+
+            if result is None:
+                data["port"] = MQTT_PORT
+                data["username"] = MQTT_USERNAME
+                self.hass.config_entries.async_update_entry(
+                    entry,
+                    data=data,
+                )
+                return self.async_abort(reason="reconfigure_successful")
+
+            errors["base"] = "Host unreachable or invalid credentials."
+
+        schema = vol.Schema(
+            {
+                vol.Required(
+                    CONF_HOST,
+                    default=entry.data.get(CONF_HOST, "192.168.0.99"),
+                ): str,
+                vol.Optional(CONF_PASSWORD): str,
+                vol.Optional(
+                    CONF_INSTALLER_ACCESS,
+                    default=entry.data.get(CONF_INSTALLER_ACCESS, False),
+                ): bool,
+            }
+        )
+
+        return self.async_show_form(
+            step_id="reconfigure",
             data_schema=schema,
             errors=errors,
         )

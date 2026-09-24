@@ -1,4 +1,31 @@
 {
+  "config": {
+    "step": {
+      "user": {
+        "title": "Dimplex MQTT Einrichtung",
+        "description": "Bitte gib die Verbindungsdaten deiner Wärmepumpe ein.",
+        "data": {
+          "host": "Host / IP-Adresse",
+          "password": "Passwort",
+          "installer_access": "Installateur-Zugriff"
+        }
+      },
+      "reconfigure": {
+        "title": "Dimplex MQTT neu konfigurieren",
+        "data": {
+          "host": "Host / IP-Adresse",
+          "password": "Passwort",
+          "installer_access": "Installateur-Zugriff"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Verbindung fehlgeschlagen oder ungültige Anmeldedaten."
+    },
+    "abort": {
+      "reconfigure_successful": "Die Neukonfiguration war erfolgreich."
+    }
+  },
   "entity": {
     "sensor": {
       "E_Aussen_T": {
@@ -7,11 +34,116 @@
       "E_Rueckl_T": {
         "name": "Rücklauftemperatur"
       },
+      "P_HK1_WK": {
+        "name": "Parallelverschiebung Heizkreis 1"
+      },
+      "P_HK2_WK": {
+        "name": "Parallelverschiebung Heizkreis 2"
+      },
+      "P_HK3_WK": {
+        "name": "Parallelverschiebung Heizkreis 3"
+      },
       "E_Vorl_T": {
         "name": "Vorlauftemperatur"
       },
+      "E_Rueckl_Soll_T": {
+        "name": "Rücklauf-Solltemperatur"
+      },
+      "E_Ww_Soll_T": {
+        "name": "Warmwasser-Solltemperatur"
+      },
+      "E_Wq_Ein_T": {
+        "name": "Wärmequelleneintrittstemperatur"
+      },
+      "E_Wq_Aus_T": {
+        "name": "Wärmequellenaustrittstemperatur"
+      },
+      "E_HK2_Soll_T": {
+        "name": "Solltemperatur Heizkreis 2"
+      },
+      "E_HK2_T": {
+        "name": "Temperatur Heizkreis 2"
+      },
+      "E_HK3_Soll_T": {
+        "name": "Solltemperatur Heizkreis 3"
+      },
+      "E_HK3_T": {
+        "name": "Temperatur Heizkreis 3"
+      },
+      "E_Raum1_T": {
+        "name": "Raumtemperatur 1"
+      },
+      "E_Raum2_T": {
+        "name": "Raumtemperatur 2"
+      },
+      "E_Raum1_Feuchte": {
+        "name": "Raumfeuchte 1"
+      },
+      "E_Raum2_Feuchte": {
+        "name": "Raumfeuchte 2"
+      },
+      "E_Kuehlen_Vorl_T": {
+        "name": "Vorlauftemperatur Kühlen"
+      },
+      "E_Kuehlen_Rueckl_T": {
+        "name": "Rücklauftemperatur Kühlen"
+      },
+      "E_Kuehlen_Primaer_T": {
+        "name": "Primärkreistemperatur Kühlen"
+      },
+      "E_Kollektor_T": {
+        "name": "Kollektortemperatur"
+      },
+      "E_Solarspeicher_T": {
+        "name": "Temperatur Solarspeicher"
+      },
+      "E_Lueftung_Aussen_T": {
+        "name": "Außenlufttemperatur Lüftung"
+      },
+      "E_Zuluft_T": {
+        "name": "Zulufttemperatur"
+      },
+      "E_Abluft_T": {
+        "name": "Ablufttemperatur"
+      },
+      "E_Fortluft_T": {
+        "name": "Fortlufttemperatur"
+      },
+      "E_Zuluft_Drehzahl": {
+        "name": "Drehzahl Zuluftventilator"
+      },
+      "E_Abluft_Drehzahl": {
+        "name": "Drehzahl Abluftventilator"
+      },
       "E_Ww_Fuehl": {
         "name": "Warmwassertemperatur"
+      },
+      "E_Waermemenge_Heizen_1_4": {
+        "name": "Wärmemenge Heizen Stellen 1-4"
+      },
+      "E_Waermemenge_Heizen_5_8": {
+        "name": "Wärmemenge Heizen Stellen 5-8"
+      },
+      "E_Waermemenge_Heizen_9_12": {
+        "name": "Wärmemenge Heizen Stellen 9-12"
+      },
+      "E_Waermemenge_WW_1_4": {
+        "name": "Wärmemenge Warmwasser Stellen 1-4"
+      },
+      "E_Waermemenge_WW_5_8": {
+        "name": "Wärmemenge Warmwasser Stellen 5-8"
+      },
+      "E_Waermemenge_WW_9_12": {
+        "name": "Wärmemenge Warmwasser Stellen 9-12"
+      },
+      "E_Waermemenge_Schwimmbad_1_4": {
+        "name": "Wärmemenge Schwimmbad Stellen 1-4"
+      },
+      "E_Waermemenge_Schwimmbad_5_8": {
+        "name": "Wärmemenge Schwimmbad Stellen 5-8"
+      },
+      "E_Waermemenge_Schwimmbad_9_12": {
+        "name": "Wärmemenge Schwimmbad Stellen 9-12"
       },
       "Anz_Status_Wert": {
         "name": "Wärmepumpenstatus",
@@ -128,6 +260,132 @@
           "2": "Rot",
           "3": "Plus"
         }
+      },
+      "B_Verdichter_1_Std": {
+        "name": "Laufzeit Verdichter 1"
+      },
+      "B_Primaerpumpe_Std": {
+        "name": "Laufzeit Primärpumpe"
+      },
+      "B_Heizungspumpe_Std": {
+        "name": "Laufzeit Heizungspumpe"
+      },
+      "B_Zusatzpumpe_Std": {
+        "name": "Laufzeit Zusatzpumpe"
+      },
+      "B_Warmwasserpumpe_Std": {
+        "name": "Laufzeit Warmwasserpumpe"
+      },
+      "B_Verdichter_1_Std_Alt": {
+        "name": "Laufzeit Verdichter 1 (Register 1380)"
+      },
+      "B_Verdichter_2_Std": {
+        "name": "Laufzeit Verdichter 2"
+      },
+      "B_Primaerpumpe_Ventilator_Std": {
+        "name": "Laufzeit Primärpumpe / Ventilator"
+      },
+      "B_Waermeerzeuger_2_Std": {
+        "name": "Laufzeit 2. Wärmeerzeuger"
+      },
+      "B_Heizungspumpe_2_Std": {
+        "name": "Laufzeit Heizungspumpe 2"
+      },
+      "B_Warmwasserpumpe_Std_Alt": {
+        "name": "Laufzeit Warmwasserpumpe (Register 1386)"
+      },
+      "B_Flanschheizung_Std": {
+        "name": "Laufzeit Flanschheizung"
+      },
+      "B_Schwimmbadpumpe_Std": {
+        "name": "Laufzeit Schwimmbadpumpe"
+      },
+      "B_Zusatzumwaelzpumpe_Std_Alt": {
+        "name": "Laufzeit Zusatzumwälzpumpe (Register 1390)"
+      },
+      "C_Verdichter_1_Gesamt": {
+        "name": "Taktungen Verdichter 1"
+      },
+      "E_Erzeugt_Heizen": {
+        "name": "Erzeugte Wärmemenge Heizen"
+      },
+      "E_Erzeugt_Heizen_Stellen_5_8": {
+        "name": "Erzeugte Heizenergie Stellen 5-8"
+      },
+      "E_Erzeugt_Heizen_Stellen_9_12": {
+        "name": "Erzeugte Heizenergie Stellen 9-12"
+      },
+      "E_Erzeugt_Heizen_Ges": {
+        "name": "Erzeugte Wärmemenge Heizen Gesamt"
+      },
+      "E_Erzeugt_Heizen_Ges_Stellen_5_8": {
+        "name": "Erzeugte Heizenergie Gesamt Stellen 5-8"
+      },
+      "E_Erzeugt_Heizen_Ges_Stellen_9_12": {
+        "name": "Erzeugte Heizenergie Gesamt Stellen 9-12"
+      },
+      "E_Erzeugt_WW": {
+        "name": "Erzeugte Wärmemenge Warmwasser"
+      },
+      "E_Erzeugt_WW_Stellen_1_4": {
+        "name": "Erzeugte Warmwasserenergie Stellen 1-4"
+      },
+      "E_Erzeugt_WW_Stellen_5_8": {
+        "name": "Erzeugte Warmwasserenergie Stellen 5-8"
+      },
+      "E_Erzeugt_WW_Ges": {
+        "name": "Erzeugte Wärmemenge Warmwasser Gesamt"
+      },
+      "E_Erzeugt_WW_Ges_Stellen_1_4": {
+        "name": "Erzeugte Warmwasserenergie Gesamt Stellen 1-4"
+      },
+      "E_Erzeugt_WW_Ges_Stellen_5_8": {
+        "name": "Erzeugte Warmwasserenergie Gesamt Stellen 5-8"
+      },
+      "E_Erzeugt_WW_Ges_Stellen_9_12": {
+        "name": "Erzeugte Warmwasserenergie Gesamt Stellen 9-12"
+      },
+      "E_Waermemenge_Heizen": {
+        "name": "Wärmemenge Heizen"
+      },
+      "E_Waermemenge_WW": {
+        "name": "Wärmemenge Warmwasser"
+      },
+      "E_Waermemenge_Schwimmbad": {
+        "name": "Wärmemenge Schwimmbad"
+      },
+      "E_Erzeugt_Heizen_Stellen_1_4": {
+        "name": "Erzeugte Heizenergie Stellen 1-4"
+      },
+      "E_Erzeugt_Heizen_Ges_Stellen_1_4": {
+        "name": "Erzeugte Heizenergie Gesamt Stellen 1-4"
+      },
+      "E_Erzeugt_WW_Ges_Stellen_5_8_alt": {
+        "name": "Erzeugte Warmwasserenergie Gesamt Stellen 5-8 (Alt)"
+      },
+      "E_Erzeugt_WW_Ges_Stellen_9_12_alt": {
+        "name": "Erzeugte Warmwasserenergie Gesamt Stellen 9-12 (Alt)"
+      },
+      "energy_heating_total": {
+        "name": "Elektrische Energie Heizen Gesamt"
+      },
+      "energy_hot_water_total": {
+        "name": "Elektrische Energie Warmwasser Gesamt"
+      },
+      "energy_pool_total": {
+        "name": "Elektrische Energie Schwimmbad Gesamt"
+      },
+      "energy_wmz_res_total": {
+        "name": "Erzeugte Wärmemenge Gesamt"
+      },
+      "energy_wmz_1_total": {
+        "name": "Erzeugte Wärmemenge Heizen"
+      },
+      "energy_wmz_2_total": {
+        "name": "Erzeugte Wärmemenge Heizen Gesamt"
+      },
+      "energy_wmz_3_total": {
+        "name": "Erzeugte Wärmemenge Warmwasser Gesamt"
       }
     },
     "number": {
@@ -148,6 +406,60 @@
       },
       "P_WW_MIN_TEMP": {
         "name": "Minimale Warmwassertemperatur"
+      },
+      "P_WW_Hysterese": {
+        "name": "Warmwasser Hysterese"
+      },
+      "P_HK1_Raum_T": {
+        "name": "Raumtemperatur Sollwert Heizkreis 1"
+      },
+      "P_HK1_Festwert_T": {
+        "name": "Festwerttemperatur Heizkreis 1"
+      },
+      "P_HK1_Heizkurvenendpunkt": {
+        "name": "Heizkurvenendpunkt Heizkreis 1"
+      },
+      "P_HK1_Hysterese": {
+        "name": "Hysterese Heizkreis 1"
+      },
+      "P_HK1_Kuehlung_15": {
+        "name": "Kühlung 15°C Heizkreis 1"
+      },
+      "P_HK1_Kuehlung_35": {
+        "name": "Kühlung 35°C Heizkreis 1"
+      },
+      "P_HK2_Heizkurvenendpunkt": {
+        "name": "Heizkurvenendpunkt Heizkreis 2"
+      },
+      "P_HK2_Festwert_T": {
+        "name": "Festwerttemperatur Heizkreis 2"
+      },
+      "P_WZE_Mischer_Hysterese": {
+        "name": "Mischer Hysterese 2. Wärmeerzeuger"
+      },
+      "P_WZE_Grenztemp_Parallel": {
+        "name": "Grenztemperatur Parallelbetrieb 2. Wärmeerzeuger"
+      },
+      "P_WZE_Grenztemp_Alternativ": {
+        "name": "Grenztemperatur Alternativbetrieb 2. Wärmeerzeuger"
+      },
+      "P_HK3_Heizkurvenendpunkt": {
+        "name": "Heizkurvenendpunkt Heizkreis 3"
+      },
+      "P_HK3_Festwert_T": {
+        "name": "Festwerttemperatur Heizkreis 3"
+      },
+      "P_Anzahl_Partystunden": {
+        "name": "Anzahl Partystunden"
+      },
+      "P_Anzahl_Urlaubstage": {
+        "name": "Anzahl Urlaubstage"
+      },
+      "P_Lueftung_Stufen": {
+        "name": "Lüftungsstufe"
+      },
+      "P_Lueftung_Stosslueften": {
+        "name": "Stoßlüften Dauer"
       }
     },
     "binary_sensor": {
@@ -157,8 +469,14 @@
       "A_VD1": {
         "name": "Verdichter 1"
       },
+      "A_VD2": {
+        "name": "Verdichter 2"
+      },
       "A_VEN": {
         "name": "Ventilator (M2)"
+      },
+      "A_WZE2": {
+        "name": "2. Wärmeerzeuger"
       },
       "A_PUP": {
         "name": "Primärpumpe (M11)"
@@ -166,11 +484,23 @@
       "A_HUP1": {
         "name": "Heizungspumpe (M13)"
       },
+      "A_Mischer1_Auf": {
+        "name": "Mischer Heizkreis 1 auf"
+      },
+      "A_Mischer1_Zu": {
+        "name": "Mischer Heizkreis 1 zu"
+      },
       "A_HUP2": {
         "name": "Heizungspumpe (M15)"
       },
       "A_HUP3": {
         "name": "Heizungspumpe (M20)"
+      },
+      "A_Schwimmbadpumpe": {
+        "name": "Schwimmbadpumpe"
+      },
+      "A_Kuehlpumpe": {
+        "name": "Kühlpumpe"
       },
       "A_ZUP": {
         "name": "Zusatzumwälzpumpe (M16)"
@@ -180,6 +510,51 @@
       },
       "A_STF": {
         "name": "Störung H5"
+      },
+      "A_Flanschheizung": {
+        "name": "Flanschheizung"
+      },
+      "A_Primaerpumpe_Kuehlen": {
+        "name": "Primärpumpe Kühlen"
+      },
+      "A_Raumthermostate_Umschaltung": {
+        "name": "Raumthermostat-Umschaltung Heizen/Kühlen"
+      },
+      "A_Mischer_Bivalent_Auf": {
+        "name": "Bivalenter Mischer auf"
+      },
+      "A_Mischer_Bivalent_Zu": {
+        "name": "Bivalenter Mischer zu"
+      },
+      "A_Mischer_Regenerativ_Auf": {
+        "name": "Regenerativer Mischer auf"
+      },
+      "A_Mischer_Regenerativ_Zu": {
+        "name": "Regenerativer Mischer zu"
+      },
+      "A_Mischer2_Auf": {
+        "name": "Mischer Heizkreis 2 auf"
+      },
+      "A_Mischer2_Zu": {
+        "name": "Mischer Heizkreis 2 zu"
+      },
+      "A_Mischer3_Auf": {
+        "name": "Mischer Heizkreis 3 auf"
+      },
+      "A_Mischer3_Zu": {
+        "name": "Mischer Heizkreis 3 zu"
+      },
+      "E_Smart_Grid_1": {
+        "name": "Smart-Grid-Eingang 1"
+      },
+      "E_Smart_Grid_2": {
+        "name": "Smart-Grid-Eingang 2"
+      },
+      "E_EVU_Sperre": {
+        "name": "EVU-Sperre"
+      },
+      "E_Sperre_Extern": {
+        "name": "Externe Sperre"
       }
     },
     "select": {
