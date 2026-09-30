@@ -60,25 +60,36 @@
       "state_class": "measurement",
       "read_only": true
     },
-    "1620a": {
-      "id": "1620a",
-      "key": "E_Rueckl_Soll_T",
+    "1620i": {
+      "id": "1620i",
+      "key": "Anz_HK1_Soll_Temp",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
-      "read_only": true
+      "read_only": true,
+      "scale": 0.1
     },
-    "1594a": {
-      "id": "1594a",
-      "key": "E_Ww_Soll_T",
+    "1621i": {
+      "id": "1621i",
+      "key": "Anz_Hk1_Ist_Temp",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
-      "read_only": true
+      "read_only": true,
+      "scale": 0.1
+    },
+    "1594u": {
+      "id": "1594u",
+      "key": "Anz_Ww_Soll",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1
     },
     "1303a": {
       "id": "1303a",
-      "key": "E_Wq_Ein_T",
+      "key": "E_WqT_Ein",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
@@ -86,77 +97,955 @@
     },
     "1302a": {
       "id": "1302a",
-      "key": "E_Wq_Aus_T",
+      "key": "E_WqT_Aus",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
       "read_only": true
     },
-    "1622a": {
-      "id": "1622a",
-      "key": "E_HK2_Soll_T",
+    "1622i": {
+      "id": "1622i",
+      "key": "Anz_HK2_Soll_Temp",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
-      "read_only": true
+      "read_only": true,
+      "scale": 0.1
     },
-    "1285a": {
-      "id": "1285a",
-      "key": "E_HK2_T",
+    "1582i": {
+      "id": "1582i",
+      "key": "Anz_Hk2_Ist_Temp",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
-      "read_only": true
+      "read_only": true,
+      "scale": 0.1
     },
-    "1624a": {
-      "id": "1624a",
-      "key": "E_HK3_Soll_T",
+    "1624i": {
+      "id": "1624i",
+      "key": "Anz_HK3_Soll_Temp",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
-      "read_only": true
+      "read_only": true,
+      "scale": 0.1
     },
-    "1286a": {
-      "id": "1286a",
-      "key": "E_HK3_T",
+    "1583i": {
+      "id": "1583i",
+      "key": "Anz_Hk3_Ist_Temp",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
-      "read_only": true
-    },
-    "1289a": {
-      "id": "1289a",
-      "key": "E_Raum1_T",
+      "read_only": true,
+      "scale": 0.1
+    }
+  },
+  "room_control": {
+    "1209i": {
+      "id": "1209i",
+      "key": "E_T_Raum_50",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
-      "read_only": true
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk1_tht50"
     },
-    "1291a": {
-      "id": "1291a",
-      "key": "E_Raum2_T",
+    "1210i": {
+      "id": "1210i",
+      "key": "E_T_Raum_51",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
-      "read_only": true
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk1_tht51"
     },
-    "1288a": {
-      "id": "1288a",
-      "key": "E_Raum1_Feuchte",
+    "1211i": {
+      "id": "1211i",
+      "key": "E_T_Raum_52",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk1_tht52"
+    },
+    "1212i": {
+      "id": "1212i",
+      "key": "E_T_Raum_53",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk1_tht53"
+    },
+    "1213i": {
+      "id": "1213i",
+      "key": "E_T_Raum_54",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk1_tht54"
+    },
+    "1214i": {
+      "id": "1214i",
+      "key": "E_T_Raum_55",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk1_tht55"
+    },
+    "1215i": {
+      "id": "1215i",
+      "key": "E_T_Raum_56",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk1_tht56"
+    },
+    "1216i": {
+      "id": "1216i",
+      "key": "E_T_Raum_57",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk1_tht57"
+    },
+    "1217i": {
+      "id": "1217i",
+      "key": "E_T_Raum_58",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk1_tht58"
+    },
+    "1218i": {
+      "id": "1218i",
+      "key": "E_T_Raum_59",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk1_tht59"
+    },
+    "1219i": {
+      "id": "1219i",
+      "key": "E_T_Raum_60",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk2_tht60"
+    },
+    "1223i": {
+      "id": "1223i",
+      "key": "E_T_Raum_61",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk2_tht61"
+    },
+    "1222i": {
+      "id": "1222i",
+      "key": "E_T_Raum_62",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk2_tht62"
+    },
+    "1224i": {
+      "id": "1224i",
+      "key": "E_T_Raum_63",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk2_tht63"
+    },
+    "1225i": {
+      "id": "1225i",
+      "key": "E_T_Raum_64",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk2_tht64"
+    },
+    "1226i": {
+      "id": "1226i",
+      "key": "E_T_Raum_65",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk2_tht65"
+    },
+    "1227i": {
+      "id": "1227i",
+      "key": "E_T_Raum_66",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk2_tht66"
+    },
+    "1228i": {
+      "id": "1228i",
+      "key": "E_T_Raum_67",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk2_tht67"
+    },
+    "1229i": {
+      "id": "1229i",
+      "key": "E_T_Raum_68",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk2_tht68"
+    },
+    "1992i": {
+      "id": "1992i",
+      "key": "E_T_Raum_69",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk2_tht69"
+    },
+    "1230i": {
+      "id": "1230i",
+      "key": "E_T_Raum_70",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk3_tht70"
+    },
+    "1231i": {
+      "id": "1231i",
+      "key": "E_T_Raum_71",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk3_tht71"
+    },
+    "1232i": {
+      "id": "1232i",
+      "key": "E_T_Raum_72",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk3_tht72"
+    },
+    "1233i": {
+      "id": "1233i",
+      "key": "E_T_Raum_73",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk3_tht73"
+    },
+    "1234i": {
+      "id": "1234i",
+      "key": "E_T_Raum_74",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk3_tht74"
+    },
+    "1235i": {
+      "id": "1235i",
+      "key": "E_T_Raum_75",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk3_tht75"
+    },
+    "1236i": {
+      "id": "1236i",
+      "key": "E_T_Raum_76",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk3_tht76"
+    },
+    "1237i": {
+      "id": "1237i",
+      "key": "E_T_Raum_77",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk3_tht77"
+    },
+    "1238i": {
+      "id": "1238i",
+      "key": "E_T_Raum_78",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk3_tht78"
+    },
+    "1239i": {
+      "id": "1239i",
+      "key": "E_T_Raum_79",
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": true,
+      "scale": 0.1,
+      "condition": "cond_hk3_tht79"
+    },
+    "502a": {
+      "id": "502a",
+      "key": "P_Soll_Raum_50",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk1_tht50"
+    },
+    "504a": {
+      "id": "504a",
+      "key": "P_Soll_Raum_51",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk1_tht51"
+    },
+    "506a": {
+      "id": "506a",
+      "key": "P_Soll_Raum_52",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk1_tht52"
+    },
+    "508a": {
+      "id": "508a",
+      "key": "P_Soll_Raum_53",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk1_tht53"
+    },
+    "510a": {
+      "id": "510a",
+      "key": "P_Soll_Raum_54",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk1_tht54"
+    },
+    "512a": {
+      "id": "512a",
+      "key": "P_Soll_Raum_55",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk1_tht55"
+    },
+    "514a": {
+      "id": "514a",
+      "key": "P_Soll_Raum_56",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk1_tht56"
+    },
+    "516a": {
+      "id": "516a",
+      "key": "P_Soll_Raum_57",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk1_tht57"
+    },
+    "518a": {
+      "id": "518a",
+      "key": "P_Soll_Raum_58",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk1_tht58"
+    },
+    "520a": {
+      "id": "520a",
+      "key": "P_Soll_Raum_59",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk1_tht59"
+    },
+    "522a": {
+      "id": "522a",
+      "key": "P_Soll_Raum_60",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk2_tht60"
+    },
+    "524a": {
+      "id": "524a",
+      "key": "P_Soll_Raum_61",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk2_tht61"
+    },
+    "526a": {
+      "id": "526a",
+      "key": "P_Soll_Raum_62",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk2_tht62"
+    },
+    "528a": {
+      "id": "528a",
+      "key": "P_Soll_Raum_63",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk2_tht63"
+    },
+    "530a": {
+      "id": "530a",
+      "key": "P_Soll_Raum_64",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk2_tht64"
+    },
+    "532a": {
+      "id": "532a",
+      "key": "P_Soll_Raum_65",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk2_tht65"
+    },
+    "534a": {
+      "id": "534a",
+      "key": "P_Soll_Raum_66",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk2_tht66"
+    },
+    "536a": {
+      "id": "536a",
+      "key": "P_Soll_Raum_67",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk2_tht67"
+    },
+    "538a": {
+      "id": "538a",
+      "key": "P_Soll_Raum_68",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk2_tht68"
+    },
+    "540a": {
+      "id": "540a",
+      "key": "P_Soll_Raum_69",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk2_tht69"
+    },
+    "542a": {
+      "id": "542a",
+      "key": "P_Soll_Raum_70",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk3_tht70"
+    },
+    "544a": {
+      "id": "544a",
+      "key": "P_Soll_Raum_74",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk3_tht74"
+    },
+    "546a": {
+      "id": "546a",
+      "key": "P_Soll_Raum_75",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk3_tht75"
+    },
+    "548a": {
+      "id": "548a",
+      "key": "P_Soll_Raum_76",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk3_tht76"
+    },
+    "550a": {
+      "id": "550a",
+      "key": "P_Soll_Raum_77",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk3_tht77"
+    },
+    "552a": {
+      "id": "552a",
+      "key": "P_Soll_Raum_78",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk3_tht78"
+    },
+    "554a": {
+      "id": "554a",
+      "key": "P_Soll_Raum_79",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk3_tht79"
+    },
+    "557a": {
+      "id": "557a",
+      "key": "P_Soll_Raum_71",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk3_tht71"
+    },
+    "559a": {
+      "id": "559a",
+      "key": "P_Soll_Raum_72",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk3_tht72"
+    },
+    "561a": {
+      "id": "561a",
+      "key": "P_Soll_Raum_73",
+      "min": 10,
+      "max": 40,
+      "device_class": "temperature",
+      "unit": "celsius",
+      "state_class": "measurement",
+      "read_only": false,
+      "condition": "cond_hk3_tht73"
+    },
+    "1240i": {
+      "id": "1240i",
+      "key": "E_H_Raum_50",
+      "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
-      "read_only": true
+      "read_only": true,
+      "condition": "cond_hk1_tht50"
     },
-    "1290a": {
-      "id": "1290a",
-      "key": "E_Raum2_Feuchte",
+    "1241i": {
+      "id": "1241i",
+      "key": "E_H_Raum_51",
+      "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
-      "read_only": true
+      "read_only": true,
+      "condition": "cond_hk1_tht51"
     },
+    "1242i": {
+      "id": "1242i",
+      "key": "E_H_Raum_52",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk1_tht52"
+    },
+    "1243i": {
+      "id": "1243i",
+      "key": "E_H_Raum_53",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk1_tht53"
+    },
+    "1245i": {
+      "id": "1245i",
+      "key": "E_H_Raum_54",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk1_tht54"
+    },
+    "1244i": {
+      "id": "1244i",
+      "key": "E_H_Raum_55",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk1_tht55"
+    },
+    "1246i": {
+      "id": "1246i",
+      "key": "E_H_Raum_56",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk1_tht56"
+    },
+    "1247i": {
+      "id": "1247i",
+      "key": "E_H_Raum_57",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk1_tht57"
+    },
+    "1248i": {
+      "id": "1248i",
+      "key": "E_H_Raum_58",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk1_tht58"
+    },
+    "1249i": {
+      "id": "1249i",
+      "key": "E_H_Raum_59",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk1_tht59"
+    },
+    "1250i": {
+      "id": "1250i",
+      "key": "E_H_Raum_60",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk2_tht60"
+    },
+    "1251i": {
+      "id": "1251i",
+      "key": "E_H_Raum_61",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk2_tht61"
+    },
+    "1252i": {
+      "id": "1252i",
+      "key": "E_H_Raum_62",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk2_tht62"
+    },
+    "1253i": {
+      "id": "1253i",
+      "key": "E_H_Raum_63",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk2_tht63"
+    },
+    "1255i": {
+      "id": "1255i",
+      "key": "E_H_Raum_64",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk2_tht64"
+    },
+    "1257i": {
+      "id": "1257i",
+      "key": "E_H_Raum_65",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk2_tht65"
+    },
+    "1256i": {
+      "id": "1256i",
+      "key": "E_H_Raum_66",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk2_tht66"
+    },
+    "1258i": {
+      "id": "1258i",
+      "key": "E_H_Raum_67",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk2_tht67"
+    },
+    "1259i": {
+      "id": "1259i",
+      "key": "E_H_Raum_68",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk2_tht68"
+    },
+    "1264i": {
+      "id": "1264i",
+      "key": "E_H_Raum_69",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk2_tht69"
+    },
+    "1265i": {
+      "id": "1265i",
+      "key": "E_H_Raum_70",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk3_tht70"
+    },
+    "1267i": {
+      "id": "1267i",
+      "key": "E_H_Raum_71",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk3_tht71"
+    },
+    "1270i": {
+      "id": "1270i",
+      "key": "E_H_Raum_72",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk3_tht72"
+    },
+    "1271i": {
+      "id": "1271i",
+      "key": "E_H_Raum_73",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk3_tht73"
+    },
+    "1272i": {
+      "id": "1272i",
+      "key": "E_H_Raum_74",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk3_tht74"
+    },
+    "1273i": {
+      "id": "1273i",
+      "key": "E_H_Raum_75",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk3_tht75"
+    },
+    "1274i": {
+      "id": "1274i",
+      "key": "E_H_Raum_76",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk3_tht76"
+    },
+    "1275i": {
+      "id": "1275i",
+      "key": "E_H_Raum_77",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk3_tht77"
+    },
+    "1277i": {
+      "id": "1277i",
+      "key": "E_H_Raum_78",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk3_tht78"
+    },
+    "1278i": {
+      "id": "1278i",
+      "key": "E_H_Raum_79",
+      "device_class": "humidity",
+      "unit": "%",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_hk3_tht79"
+    }
+  },
+  "cooling": {
     "1299a": {
       "id": "1299a",
-      "key": "E_Kuehlen_Vorl_T",
+      "key": "E_VorlT_KP",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
@@ -164,15 +1053,17 @@
     },
     "1298a": {
       "id": "1298a",
-      "key": "E_Kuehlen_Rueckl_T",
+      "key": "E_RuecklT_KP",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
       "read_only": true
-    },
+    }
+  },
+  "solar": {
     "1296a": {
       "id": "1296a",
-      "key": "E_Kuehlen_Primaer_T",
+      "key": "E_Sole_Temp",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
@@ -180,7 +1071,7 @@
     },
     "1287a": {
       "id": "1287a",
-      "key": "E_Kollektor_T",
+      "key": "E_KLF",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
@@ -188,15 +1079,17 @@
     },
     "1295a": {
       "id": "1295a",
-      "key": "E_Solarspeicher_T",
+      "key": "E_Sol_Speicher",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
       "read_only": true
-    },
+    }
+  },
+  "ventilation": {
     "629a": {
       "id": "629a",
-      "key": "E_Lueftung_Aussen_T",
+      "key": "Luft_Temp_Aussenluft",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
@@ -204,7 +1097,7 @@
     },
     "630a": {
       "id": "630a",
-      "key": "E_Zuluft_T",
+      "key": "Luft_Temp_Zuluft",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
@@ -212,7 +1105,7 @@
     },
     "631a": {
       "id": "631a",
-      "key": "E_Abluft_T",
+      "key": "Luft_Temp_Abluft",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
@@ -220,22 +1113,22 @@
     },
     "632a": {
       "id": "632a",
-      "key": "E_Fortluft_T",
+      "key": "Luft_Temp_Fortluft",
       "device_class": "temperature",
       "unit": "celsius",
       "state_class": "measurement",
       "read_only": true
     },
-    "1559u": {
-      "id": "1559u",
-      "key": "E_Zuluft_Drehzahl",
+    "1559i": {
+      "id": "1559i",
+      "key": "Luft_Drehzahl_Zuluft",
       "unit": "rpm",
       "state_class": "measurement",
       "read_only": true
     },
-    "1560u": {
-      "id": "1560u",
-      "key": "E_Abluft_Drehzahl",
+    "1560i": {
+      "id": "1560i",
+      "key": "Luft_Drehzahl_Abluft",
       "unit": "rpm",
       "state_class": "measurement",
       "read_only": true
@@ -282,7 +1175,7 @@
     },
     "1043i": {
       "id": "1043i",
-      "key": "P_WW_Hysterese",
+      "key": "P_WW_HY",
       "unit": "celsius",
       "read_only": false,
       "installer_only": true,
@@ -293,26 +1186,28 @@
   "settings": {
     "700a": {
       "id": "700a",
-      "key": "P_HK1_Raum_T",
+      "key": "P_HK1_RT_SOLL",
       "device_class": "temperature",
       "unit": "celsius",
       "read_only": false,
+      "installer_only": true,
       "min": 15,
-      "max": 30
+      "max": 30,
+      "step": 0.1
     },
     "768i": {
       "id": "768i",
-      "key": "P_HK1_Festwert_T",
+      "key": "P_HK1_FWR_SOLL",
       "device_class": "temperature",
       "unit": "celsius",
       "read_only": false,
       "installer_only": true,
       "min": 18,
-      "max": 60
+      "max": 70
     },
     "766i": {
       "id": "766i",
-      "key": "P_HK1_Heizkurvenendpunkt",
+      "key": "P_HK1_END",
       "device_class": "temperature",
       "unit": "celsius",
       "read_only": false,
@@ -322,38 +1217,38 @@
     },
     "701a": {
       "id": "701a",
-      "key": "P_HK1_Hysterese",
+      "key": "P_HK_HYST",
       "device_class": "temperature",
       "unit": "celsius",
       "read_only": false,
       "installer_only": true,
-      "min": 0.5,
+      "min": 0.1,
       "max": 5,
-      "step": 0.5
+      "step": 0.1
     },
     "773i": {
       "id": "773i",
-      "key": "P_HK1_Kuehlung_15",
+      "key": "P_Kuehl_Dyn_Soll_15",
       "device_class": "temperature",
       "unit": "celsius",
       "read_only": false,
       "installer_only": true,
       "min": 10,
-      "max": 35
+      "max": 30
     },
     "509i": {
       "id": "509i",
-      "key": "P_HK1_Kuehlung_35",
+      "key": "P_Kuehl_Dyn_Soll_35",
       "device_class": "temperature",
       "unit": "celsius",
       "read_only": false,
       "installer_only": true,
       "min": 10,
-      "max": 35
+      "max": 30
     },
     "851i": {
       "id": "851i",
-      "key": "P_HK2_Heizkurvenendpunkt",
+      "key": "P_HK2_END",
       "device_class": "temperature",
       "unit": "celsius",
       "read_only": false,
@@ -363,47 +1258,47 @@
     },
     "853i": {
       "id": "853i",
-      "key": "P_HK2_Festwert_T",
+      "key": "P_HK2_FWR_SOLL",
       "device_class": "temperature",
       "unit": "celsius",
       "read_only": false,
       "installer_only": true,
-      "min": 20,
-      "max": 60
+      "min": 0,
+      "max": 70
     },
     "564a": {
       "id": "564a",
-      "key": "P_WZE_Mischer_Hysterese",
+      "key": "P_Biv_MIHY",
       "device_class": "temperature",
       "unit": "celsius",
       "read_only": false,
       "installer_only": true,
       "min": 0.5,
       "max": 2,
-      "step": 0.5
+      "step": 0.1
     },
     "750i": {
       "id": "750i",
-      "key": "P_WZE_Grenztemp_Parallel",
+      "key": "P_ESG_ZWE",
       "device_class": "temperature",
       "unit": "celsius",
       "read_only": false,
       "installer_only": true,
-      "min": -25,
-      "max": 35
+      "min": -99,
+      "max": 99
     },
     "751i": {
       "id": "751i",
-      "key": "P_WZE_Grenztemp_Alternativ",
+      "key": "P_ESG_WP",
       "unit": "min",
       "read_only": false,
       "installer_only": true,
-      "min": 30,
-      "max": 85
+      "min": -99,
+      "max": 99
     },
     "931i": {
       "id": "931i",
-      "key": "P_HK3_Heizkurvenendpunkt",
+      "key": "P_HK3_END",
       "device_class": "temperature",
       "unit": "celsius",
       "read_only": false,
@@ -413,17 +1308,17 @@
     },
     "933i": {
       "id": "933i",
-      "key": "P_HK3_Festwert_T",
+      "key": "P_HK3_FWR_SOLL",
       "device_class": "temperature",
       "unit": "celsius",
       "read_only": false,
       "installer_only": true,
-      "min": 20,
-      "max": 60
+      "min": 0,
+      "max": 70
     },
     "715i": {
       "id": "715i",
-      "key": "P_Anzahl_Partystunden",
+      "key": "P_PARTY_HOUR",
       "unit": "h",
       "read_only": false,
       "min": 0,
@@ -431,7 +1326,7 @@
     },
     "1108i": {
       "id": "1108i",
-      "key": "P_Anzahl_Urlaubstage",
+      "key": "P_URLAUB_TAGE",
       "unit": "day",
       "read_only": false,
       "min": 0,
@@ -439,97 +1334,23 @@
     },
     "1564i": {
       "id": "1564i",
-      "key": "P_Lueftung_Stufen",
+      "key": "P_Luft_Stufe",
       "read_only": false,
       "min": 0,
       "max": 5
     },
     "1565i": {
       "id": "1565i",
-      "key": "P_Lueftung_Stosslueften",
+      "key": "Luft_Zeit_Stoss",
       "unit": "min",
       "read_only": false,
       "min": 15,
       "max": 90
     }
   },
-  "energy_raw": {
-    "1300u": {
-      "id": "1300u",
-      "key": "E_Waermemenge_Heizen_1_4",
-      "device_class": "energy",
-      "unit": "kWh",
-      "state_class": "total_increasing",
-      "read_only": true
-    },
-    "1301u": {
-      "id": "1301u",
-      "key": "E_Waermemenge_Heizen_5_8",
-      "device_class": "energy",
-      "unit": "kWh",
-      "state_class": "total_increasing",
-      "read_only": true
-    },
-    "1302u": {
-      "id": "1302u",
-      "key": "E_Waermemenge_Heizen_9_12",
-      "device_class": "energy",
-      "unit": "kWh",
-      "state_class": "total_increasing",
-      "read_only": true
-    },
-    "1303u": {
-      "id": "1303u",
-      "key": "E_Waermemenge_WW_1_4",
-      "device_class": "energy",
-      "unit": "kWh",
-      "state_class": "total_increasing",
-      "read_only": true
-    },
-    "1304u": {
-      "id": "1304u",
-      "key": "E_Waermemenge_WW_5_8",
-      "device_class": "energy",
-      "unit": "kWh",
-      "state_class": "total_increasing",
-      "read_only": true
-    },
-    "1305u": {
-      "id": "1305u",
-      "key": "E_Waermemenge_WW_9_12",
-      "device_class": "energy",
-      "unit": "kWh",
-      "state_class": "total_increasing",
-      "read_only": true
-    },
-    "1306u": {
-      "id": "1306u",
-      "key": "E_Waermemenge_Schwimmbad_1_4",
-      "device_class": "energy",
-      "unit": "kWh",
-      "state_class": "total_increasing",
-      "read_only": true
-    },
-    "1307u": {
-      "id": "1307u",
-      "key": "E_Waermemenge_Schwimmbad_5_8",
-      "device_class": "energy",
-      "unit": "kWh",
-      "state_class": "total_increasing",
-      "read_only": true
-    },
-    "1308u": {
-      "id": "1308u",
-      "key": "E_Waermemenge_Schwimmbad_9_12",
-      "device_class": "energy",
-      "unit": "kWh",
-      "state_class": "total_increasing",
-      "read_only": true
-    }
-  },
   "status": {
     "530i": {
-      "id": "530i",
+      "id": "1586i",
       "key": "Anz_Status_Wert",
       "read_only": true
     },
@@ -583,7 +1404,7 @@
     },
     "1507d": {
       "id": "1507d",
-      "key": "A_WZE2",
+      "key": "A_KESSEL",
       "device_class": "running",
       "read_only": true
     },
@@ -601,13 +1422,13 @@
     },
     "698d": {
       "id": "698d",
-      "key": "A_Mischer1_Auf",
+      "key": "A_Hk1_MiA",
       "device_class": "running",
       "read_only": true
     },
     "699d": {
       "id": "699d",
-      "key": "A_Mischer1_Zu",
+      "key": "A_Hk1_MiZ",
       "device_class": "running",
       "read_only": true
     },
@@ -625,13 +1446,13 @@
     },
     "1518d": {
       "id": "1518d",
-      "key": "A_Schwimmbadpumpe",
+      "key": "A_SUP",
       "device_class": "running",
       "read_only": true
     },
     "1519d": {
       "id": "1519d",
-      "key": "A_Kuehlpumpe",
+      "key": "A_KUP",
       "device_class": "running",
       "read_only": true
     },
@@ -655,141 +1476,89 @@
     },
     "1510d": {
       "id": "1510d",
-      "key": "A_Flanschheizung",
-      "device_class": "running",
-      "read_only": true
-    },
-    "1522d": {
-      "id": "1522d",
-      "key": "A_Primaerpumpe_Kuehlen",
-      "device_class": "running",
-      "read_only": true
-    },
-    "1527d": {
-      "id": "1527d",
-      "key": "A_Raumthermostate_Umschaltung",
+      "key": "A_FH",
       "device_class": "running",
       "read_only": true
     },
     "1528d": {
       "id": "1528d",
-      "key": "A_Mischer_Bivalent_Auf",
+      "key": "A_Biv_MiA",
       "device_class": "running",
       "read_only": true
     },
     "1529d": {
       "id": "1529d",
-      "key": "A_Mischer_Bivalent_Zu",
+      "key": "A_Biv_MiZ",
       "device_class": "running",
       "read_only": true
     },
     "1530d": {
       "id": "1530d",
-      "key": "A_Mischer_Regenerativ_Auf",
+      "key": "A_Reg_MiA",
       "device_class": "running",
       "read_only": true
     },
     "1531d": {
       "id": "1531d",
-      "key": "A_Mischer_Regenerativ_Zu",
+      "key": "A_Reg_MiZ",
       "device_class": "running",
       "read_only": true
     },
     "1532d": {
       "id": "1532d",
-      "key": "A_Mischer2_Auf",
+      "key": "A_Hk2_MiA",
       "device_class": "running",
       "read_only": true
     },
     "1533d": {
       "id": "1533d",
-      "key": "A_Mischer2_Zu",
+      "key": "A_Hk2_MiZ",
       "device_class": "running",
       "read_only": true
     },
     "1454d": {
       "id": "1454d",
-      "key": "A_Mischer3_Auf",
+      "key": "A_Hk3_MiA",
       "device_class": "running",
       "read_only": true
     },
     "1535d": {
       "id": "1535d",
-      "key": "A_Mischer3_Zu",
+      "key": "A_Hk3_MiZ",
       "device_class": "running",
       "read_only": true
     }
   },
   "inputs": {
-    "3d": {
-      "id": "3d",
-      "key": "E_Smart_Grid_1",
+    "1246d": {
+      "id": "1246d",
+      "key": "E_SmartGrid_1",
       "device_class": "running",
       "read_only": true
     },
-    "4d": {
-      "id": "4d",
-      "key": "E_Smart_Grid_2",
+    "1247d": {
+      "id": "1247d",
+      "key": "E_SmartGrid_2",
       "device_class": "running",
       "read_only": true
     },
     "1402d": {
       "id": "1402d",
-      "key": "E_EVU_Sperre",
+      "key": "E_EVS",
       "device_class": "running",
       "read_only": true
     },
     "1245d": {
       "id": "1245d",
-      "key": "E_Sperre_Extern",
+      "key": "E_Sperr_Ext",
       "device_class": "running",
       "read_only": true
     }
   },
   "operating_hours": {
-    "1617i": {
-      "id": "1617i",
-      "key": "B_Verdichter_1_Std",
-      "device_class": "duration",
-      "unit": "h",
-      "state_class": "total_increasing",
-      "read_only": true
-    },
-    "1613i": {
-      "id": "1613i",
-      "key": "B_Primaerpumpe_Std",
-      "device_class": "duration",
-      "unit": "h",
-      "state_class": "total_increasing",
-      "read_only": true
-    },
-    "1612i": {
-      "id": "1612i",
-      "key": "B_Heizungspumpe_Std",
-      "device_class": "duration",
-      "unit": "h",
-      "state_class": "total_increasing",
-      "read_only": true
-    },
-    "1790i": {
-      "id": "1790i",
-      "key": "B_Zusatzpumpe_Std",
-      "device_class": "duration",
-      "unit": "h",
-      "state_class": "total_increasing",
-      "read_only": true
-    },
-    "1788i": {
-      "id": "1788i",
-      "key": "B_Warmwasserpumpe_Std",
-      "device_class": "duration",
-      "unit": "h",
-      "state_class": "total_increasing",
-      "read_only": true
-    },
     "1380u": {
       "id": "1380u",
-      "key": "B_Verdichter_1_Std_Alt",
+      "key": "BS_Vd1",
       "device_class": "duration",
       "unit": "h",
       "state_class": "total_increasing",
@@ -797,15 +1566,7 @@
     },
     "1381u": {
       "id": "1381u",
-      "key": "B_Verdichter_2_Std",
-      "device_class": "duration",
-      "unit": "h",
-      "state_class": "total_increasing",
-      "read_only": true
-    },
-    "1384u": {
-      "id": "1384u",
-      "key": "B_Primaerpumpe_Ventilator_Std",
+      "key": "BS_Vd2",
       "device_class": "duration",
       "unit": "h",
       "state_class": "total_increasing",
@@ -813,7 +1574,15 @@
     },
     "1382u": {
       "id": "1382u",
-      "key": "B_Waermeerzeuger_2_Std",
+      "key": "BS_ZWE",
+      "device_class": "duration",
+      "unit": "h",
+      "state_class": "total_increasing",
+      "read_only": true
+    },
+    "1384u": {
+      "id": "1384u",
+      "key": "BS_PupVen",
       "device_class": "duration",
       "unit": "h",
       "state_class": "total_increasing",
@@ -821,7 +1590,7 @@
     },
     "1385u": {
       "id": "1385u",
-      "key": "B_Heizungspumpe_2_Std",
+      "key": "BS_HUP",
       "device_class": "duration",
       "unit": "h",
       "state_class": "total_increasing",
@@ -829,7 +1598,7 @@
     },
     "1386u": {
       "id": "1386u",
-      "key": "B_Warmwasserpumpe_Std_Alt",
+      "key": "BS_WUP",
       "device_class": "duration",
       "unit": "h",
       "state_class": "total_increasing",
@@ -837,7 +1606,7 @@
     },
     "1387u": {
       "id": "1387u",
-      "key": "B_Flanschheizung_Std",
+      "key": "BS_THK",
       "device_class": "duration",
       "unit": "h",
       "state_class": "total_increasing",
@@ -845,7 +1614,15 @@
     },
     "1388u": {
       "id": "1388u",
-      "key": "B_Schwimmbadpumpe_Std",
+      "key": "BS_SUP",
+      "device_class": "duration",
+      "unit": "h",
+      "state_class": "total_increasing",
+      "read_only": true
+    },
+    "1389u": {
+      "id": "1389u",
+      "key": "BS_VWV",
       "device_class": "duration",
       "unit": "h",
       "state_class": "total_increasing",
@@ -853,7 +1630,15 @@
     },
     "1390u": {
       "id": "1390u",
-      "key": "B_Zusatzumwaelzpumpe_Std_Alt",
+      "key": "BS_ZUP",
+      "device_class": "duration",
+      "unit": "h",
+      "state_class": "total_increasing",
+      "read_only": true
+    },
+    "1510u": {
+      "id": "1510u",
+      "key": "BS_Reg",
       "device_class": "duration",
       "unit": "h",
       "state_class": "total_increasing",
@@ -861,41 +1646,41 @@
     }
   },
   "cycles": {
-    "1575i": {
-      "id": "1575i",
-      "key": "C_Verdichter_1_Gesamt",
+    "1491u": {
+      "id": "1491u",
+      "key": "BS_Vd1_SV",
+      "state_class": "total_increasing",
+      "read_only": true
+    },
+    "1492u": {
+      "id": "1492u",
+      "key": "BS_Vd1_SV_H",
+      "state_class": "total_increasing",
+      "read_only": true
+    },
+    "1493u": {
+      "id": "1493u",
+      "key": "BS_Vd1_SV_WW",
+      "state_class": "total_increasing",
+      "read_only": true
+    },
+    "1494u": {
+      "id": "1494u",
+      "key": "BS_Vd1_SV_SW",
+      "state_class": "total_increasing",
+      "read_only": true
+    },
+    "1495u": {
+      "id": "1495u",
+      "key": "BS_Vd1_SV_K",
       "state_class": "total_increasing",
       "read_only": true
     }
   },
   "energy": {
-    "1672i": {
-      "id": "1672i",
-      "key": "E_Erzeugt_Heizen",
-      "device_class": "energy",
-      "unit": "kWh",
-      "state_class": "total_increasing",
-      "read_only": true
-    },
-    "1673i": {
-      "id": "1673i",
-      "key": "E_Erzeugt_Heizen_Stellen_5_8",
-      "device_class": "energy",
-      "unit": "kWh",
-      "state_class": "total_increasing",
-      "read_only": true
-    },
-    "1674i": {
-      "id": "1674i",
-      "key": "E_Erzeugt_Heizen_Stellen_9_12",
-      "device_class": "energy",
-      "unit": "kWh",
-      "state_class": "total_increasing",
-      "read_only": true
-    },
     "1660i": {
       "id": "1660i",
-      "key": "E_Erzeugt_Heizen_Ges",
+      "key": "WMZ_Anz_G_ST1bis4",
       "device_class": "energy",
       "unit": "kWh",
       "state_class": "total_increasing",
@@ -903,7 +1688,7 @@
     },
     "1661i": {
       "id": "1661i",
-      "key": "E_Erzeugt_Heizen_Ges_Stellen_5_8",
+      "key": "WMZ_Anz_G_ST5bis8",
       "device_class": "energy",
       "unit": "kWh",
       "state_class": "total_increasing",
@@ -911,15 +1696,7 @@
     },
     "1662i": {
       "id": "1662i",
-      "key": "E_Erzeugt_Heizen_Ges_Stellen_9_12",
-      "device_class": "energy",
-      "unit": "kWh",
-      "state_class": "total_increasing",
-      "read_only": true
-    },
-    "1665i": {
-      "id": "1665i",
-      "key": "E_Erzeugt_WW",
+      "key": "WMZ_Anz_G_ST9bis12",
       "device_class": "energy",
       "unit": "kWh",
       "state_class": "total_increasing",
@@ -927,7 +1704,7 @@
     },
     "1663i": {
       "id": "1663i",
-      "key": "E_Erzeugt_WW_Stellen_1_4",
+      "key": "WMZ_Anz_H_ST1bis4",
       "device_class": "energy",
       "unit": "kWh",
       "state_class": "total_increasing",
@@ -935,7 +1712,15 @@
     },
     "1664i": {
       "id": "1664i",
-      "key": "E_Erzeugt_WW_Stellen_5_8",
+      "key": "WMZ_Anz_H_ST5bis8",
+      "device_class": "energy",
+      "unit": "kWh",
+      "state_class": "total_increasing",
+      "read_only": true
+    },
+    "1665i": {
+      "id": "1665i",
+      "key": "WMZ_Anz_H_ST9bis12",
       "device_class": "energy",
       "unit": "kWh",
       "state_class": "total_increasing",
@@ -943,7 +1728,23 @@
     },
     "1669i": {
       "id": "1669i",
-      "key": "E_Erzeugt_WW_Ges",
+      "key": "WMZ_Anz_WW_ST1bis4",
+      "device_class": "energy",
+      "unit": "kWh",
+      "state_class": "total_increasing",
+      "read_only": true
+    },
+    "1670i": {
+      "id": "1670i",
+      "key": "WMZ_Anz_WW_ST5bis8",
+      "device_class": "energy",
+      "unit": "kWh",
+      "state_class": "total_increasing",
+      "read_only": true
+    },
+    "1671i": {
+      "id": "1671i",
+      "key": "WMZ_Anz_WW_ST9bis12",
       "device_class": "energy",
       "unit": "kWh",
       "state_class": "total_increasing",
@@ -951,7 +1752,7 @@
     },
     "1666i": {
       "id": "1666i",
-      "key": "E_Erzeugt_WW_Ges_Stellen_1_4",
+      "key": "WMZ_Anz_SW_ST1bis4",
       "device_class": "energy",
       "unit": "kWh",
       "state_class": "total_increasing",
@@ -959,7 +1760,7 @@
     },
     "1667i": {
       "id": "1667i",
-      "key": "E_Erzeugt_WW_Ges_Stellen_5_8",
+      "key": "WMZ_Anz_SW_ST5bis8",
       "device_class": "energy",
       "unit": "kWh",
       "state_class": "total_increasing",
@@ -967,66 +1768,34 @@
     },
     "1668i": {
       "id": "1668i",
-      "key": "E_Erzeugt_WW_Ges_Stellen_9_12",
+      "key": "WMZ_Anz_SW_ST9bis12",
       "device_class": "energy",
       "unit": "kWh",
       "state_class": "total_increasing",
       "read_only": true
     },
-    "energy_heating_total": {
-      "id": "energy_heating_total",
-      "key": "energy_heating_total",
+    "1644i": {
+      "id": "1644i",
+      "key": "Qc_Anz_G_ST1bis4",
       "device_class": "energy",
-      "state_class": "total_increasing",
       "unit": "kWh",
+      "state_class": "total_increasing",
       "read_only": true
     },
-    "energy_hot_water_total": {
-      "id": "energy_hot_water_total",
-      "key": "energy_hot_water_total",
+    "1645i": {
+      "id": "1645i",
+      "key": "Qc_Anz_G_ST5bis8",
       "device_class": "energy",
-      "state_class": "total_increasing",
       "unit": "kWh",
+      "state_class": "total_increasing",
       "read_only": true
     },
-    "energy_pool_total": {
-      "id": "energy_pool_total",
-      "key": "energy_pool_total",
+    "1646i": {
+      "id": "1646i",
+      "key": "Qc_Anz_G_ST9bis12",
       "device_class": "energy",
-      "state_class": "total_increasing",
       "unit": "kWh",
-      "read_only": true
-    },
-    "energy_wmz_res_total": {
-      "id": "energy_wmz_res_total",
-      "key": "energy_wmz_res_total",
-      "device_class": "energy",
       "state_class": "total_increasing",
-      "unit": "kWh",
-      "read_only": true
-    },
-    "energy_wmz_1_total": {
-      "id": "energy_wmz_1_total",
-      "key": "energy_wmz_1_total",
-      "device_class": "energy",
-      "state_class": "total_increasing",
-      "unit": "kWh",
-      "read_only": true
-    },
-    "energy_wmz_2_total": {
-      "id": "energy_wmz_2_total",
-      "key": "energy_wmz_2_total",
-      "device_class": "energy",
-      "state_class": "total_increasing",
-      "unit": "kWh",
-      "read_only": true
-    },
-    "energy_wmz_3_total": {
-      "id": "energy_wmz_3_total",
-      "key": "energy_wmz_3_total",
-      "device_class": "energy",
-      "state_class": "total_increasing",
-      "unit": "kWh",
       "read_only": true
     }
   }

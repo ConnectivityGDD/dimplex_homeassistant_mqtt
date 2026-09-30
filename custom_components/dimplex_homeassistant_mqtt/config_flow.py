@@ -74,8 +74,8 @@ def test_mqtt_connection(data: dict) -> str | None:
 
     finally:
         try:
-            client.loop_stop()
             client.disconnect()
+            client.loop_stop()
         except Exception:
             pass
 
@@ -110,7 +110,7 @@ class DimplexMqttConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     data=data,
                 )
 
-            errors["base"] = "Host unreachable or invalid credentials."
+            errors["base"] = "cannot_connect"
 
         schema = vol.Schema(
             {
@@ -146,13 +146,13 @@ class DimplexMqttConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             if result is None:
                 data["port"] = MQTT_PORT
                 data["username"] = MQTT_USERNAME
-                self.hass.config_entries.async_update_entry(
+                return self.async_update_reload_and_abort(
                     entry,
                     data=data,
+                    reason="reconfigure_successful",
                 )
-                return self.async_abort(reason="reconfigure_successful")
 
-            errors["base"] = "Host unreachable or invalid credentials."
+            errors["base"] = "cannot_connect"
 
         schema = vol.Schema(
             {

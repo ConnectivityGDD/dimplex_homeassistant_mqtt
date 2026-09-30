@@ -16,10 +16,12 @@ class DimplexMqttClient:
         self,
         config: dict[str, Any],
         on_values_changed: Callable[[dict[str, Any]], None] | None = None,
+        on_connection_changed: Callable[[bool], None] | None = None,
     ) -> None:
         self.config = config
         self.client_id = f"dimplex_mqtt_ha_{uuid.uuid4().hex[:8]}"
         self.on_values_changed = on_values_changed
+        self.on_connection_changed = on_connection_changed
 
         self._correlation_id = 0
         self._correlation_lock = threading.Lock()
@@ -102,6 +104,10 @@ class DimplexMqttClient:
     ):
         topic = self.pending_subscriptions.pop(mid, "unknown")
 
+        if any(getattr(code, "value", code) >= 128 for code in reason_codes):
+            _LOGGER.error("MQTT subscription rejected: %s", topic)
+            return
+
         if topic != "unknown":
             self.subscribed_topics.add(topic)
 
@@ -112,8 +118,15 @@ class DimplexMqttClient:
             reason_codes,
         )
 
-        if "clear_prev_val_cache_reply" in topic:
-            self.send_clear_prev_value_cache()
+        required = {
+            f"extern/{self.client_id}/clear_prev_val_cache_reply",
+            "gateway/broadcast/changed_on/#",
+        }
+        if topic in required and required.issubset(self.subscribed_topics):
+            try:
+                self.send_clear_prev_value_cache()
+            except ConnectionError:
+                _LOGGER.exception("Failed to request initial MQTT snapshot")
 
 
     def subscribe_to_topic(self, topic: str):
@@ -148,6 +161,8 @@ class DimplexMqttClient:
             self.client_id,
         )
         self.connected = True
+        if self.on_connection_changed is not None:
+            self.on_connection_changed(True)
         self.last_connect_time = datetime.now()
         self.subscribed_topics.clear()
         self.pending_subscriptions.clear()
@@ -181,6 +196,10 @@ class DimplexMqttClient:
         self.connected = False
         self.disconnect_reason = rc
         self.last_disconnect_time = datetime.now()
+        with self.lock:
+            self.values.clear()
+        if self.on_connection_changed is not None:
+            self.on_connection_changed(False)
 
     def _on_message(self, client, userdata, msg) -> None:
         topic = msg.topic
@@ -302,6 +321,9 @@ class DimplexMqttClient:
             except (TypeError, ValueError):
                 return value
 
+        if isinstance(value, (int, float)):
+            return value
+
         try:
             return int(value)
         except (TypeError, ValueError):
@@ -332,5 +354,5 @@ class DimplexMqttClient:
     def stop(self) -> None:
         """Stop MQTT client."""
         self._stopped = True
-        self.client.loop_stop()
         self.client.disconnect()
+        self.client.loop_stop()

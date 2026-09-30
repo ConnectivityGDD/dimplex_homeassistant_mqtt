@@ -12,9 +12,10 @@ from homeassistant.components.select import (
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import DOMAIN
+from .utils.discovery import discover_entities
+from .utils.translations_helper import get_translations
 
 SELECT_CONFIG_FILE = Path(__file__).parent / "sensors.json"
-TRANSLATION_DIR = Path(__file__).parent / "translations"
 
 @dataclass(frozen=True, kw_only=True)
 class DimplexMqttSelectEntityDescription(
@@ -23,27 +24,6 @@ class DimplexMqttSelectEntityDescription(
     id: str
     raw_options: list[str]
     hidden: bool = False
-
-def _load_translation_file(language: str) -> dict[str, Any]:
-    path = TRANSLATION_DIR / f"{language}.json"
-
-    if not path.exists():
-        path = TRANSLATION_DIR / "en.json"
-
-    if not path.exists():
-        return {}
-
-    try:
-        with path.open("r", encoding="utf-8") as file:
-            return json.load(file)
-    except Exception:
-        return {}
-
-
-TRANSLATIONS = {
-    "en": _load_translation_file("en"),
-    "de": _load_translation_file("de"),
-}
 
 def _walk_select_config(node):
     if isinstance(node, list):
@@ -90,42 +70,19 @@ def _load_select_descriptions():
 SELECT_DESCRIPTIONS = _load_select_descriptions()
 
 
-async def async_setup_entry(
-    hass,
-    entry,
-    async_add_entities,
-):
+async def async_setup_entry(hass, entry, async_add_entities):
     coordinator = hass.data[DOMAIN][entry.entry_id]
+    installer_access = coordinator.config.get("installer_access", False)
 
-    added: set[str] = set()
-
-    def add_new_selects():
-        data = coordinator.data or {}
-        new_entities = []
-
-        for description in SELECT_DESCRIPTIONS:
-            if description.hidden and not coordinator.config.get(
-                "installer_access", False
-            ):
-                continue
-            if (
-                description.id in data
-                and description.id not in added
-            ):
-                added.add(description.id)
-
-                new_entities.append(
-                    DimplexMqttSelect(
-                        coordinator,
-                        description,
-                    )
-                )
-
-        if new_entities:
-            async_add_entities(new_entities)
-
-    add_new_selects()
-    coordinator.async_add_listener(add_new_selects)
+    discover_entities(
+        coordinator,
+        entry,
+        (description for description in SELECT_DESCRIPTIONS
+         if not description.hidden or installer_access),
+        lambda description: description.id,
+        lambda description: DimplexMqttSelect(coordinator, description),
+        async_add_entities,
+    )
 
 
 class DimplexMqttSelect(
@@ -147,9 +104,8 @@ class DimplexMqttSelect(
 
         self.entity_description = description
         self._attr_translation_key = description.translation_key
-        translations = TRANSLATIONS.get(
-            (coordinator.hass.config.language or "en").split("-")[0],
-            TRANSLATIONS.get("en", {}),
+        translations = get_translations(
+            (coordinator.hass.config.language or "en").split("-")[0]
         )
         entities = translations.get("entity", {})
         self._attr_name = description.translation_key
@@ -171,8 +127,8 @@ class DimplexMqttSelect(
     @property
     def available(self):
         return (
-            self.entity_description.id
-            in (self.coordinator.data or {})
+            self.coordinator.connected
+            and self.entity_description.id in (self.coordinator.data or {})
         )
 
     @property
@@ -194,7 +150,7 @@ class DimplexMqttSelect(
     
     def _translated_options(self) -> dict[str, str]:
         language = (self.coordinator.hass.config.language or "en").split("-")[0]
-        translations = TRANSLATIONS.get(language) or TRANSLATIONS.get("en", {})
+        translations = get_translations(language)
 
         return (
             translations

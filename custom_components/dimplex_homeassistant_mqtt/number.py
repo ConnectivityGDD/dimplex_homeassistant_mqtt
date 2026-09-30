@@ -12,9 +12,10 @@ from homeassistant.helpers.entity import EntityCategory
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import DOMAIN
+from .utils.discovery import discover_entities
+from .utils.translations_helper import get_translations
 
 NUMBER_CONFIG_FILE = Path(__file__).parent / "sensors.json"
-TRANSLATION_DIR = Path(__file__).parent / "translations"
 
 UNITS = {
     "celsius": UnitOfTemperature.CELSIUS,
@@ -34,14 +35,7 @@ class DimplexMqttNumberEntityDescription(NumberEntityDescription):
 
 
 def _entity_name(language: str, key: str) -> str:
-    path = TRANSLATION_DIR / f"{language}.json"
-    if not path.exists():
-        path = TRANSLATION_DIR / "en.json"
-    try:
-        with path.open("r", encoding="utf-8") as file:
-            translations = json.load(file)
-    except (OSError, json.JSONDecodeError):
-        translations = {}
+    translations = get_translations(language)
     entities = translations.get("entity", {})
     name = entities.get("number", {}).get(key, {}).get("name")
     if name is not None:
@@ -111,33 +105,17 @@ NUMBER_DESCRIPTIONS = _load_number_descriptions()
 
 async def async_setup_entry(hass, entry, async_add_entities):
     coordinator = hass.data[DOMAIN][entry.entry_id]
+    installer_access = coordinator.config.get("installer_access", False)
 
-    added: set[str] = set()
-    installer_access = hass.data[DOMAIN][entry.entry_id].config.get(
-        "installer_access", False
+    discover_entities(
+        coordinator,
+        entry,
+        (description for description in NUMBER_DESCRIPTIONS
+         if installer_access or (description.entity_category != EntityCategory.CONFIG and not description.hidden)),
+        lambda description: description.id,
+        lambda description: DimplexMqttNumber(coordinator, description),
+        async_add_entities,
     )
-
-    def add_new_numbers():
-        data = coordinator.data or {}
-        new_entities = []
-
-        for description in NUMBER_DESCRIPTIONS:
-            if (
-                description.entity_category == EntityCategory.CONFIG
-                and not installer_access
-            ):
-                continue
-            if description.hidden and not installer_access:
-                continue
-            if description.id in data and description.id not in added:
-                added.add(description.id)
-                new_entities.append(DimplexMqttNumber(coordinator, description))
-
-        if new_entities:
-            async_add_entities(new_entities)
-
-    add_new_numbers()
-    coordinator.async_add_listener(add_new_numbers)
 
 
 class DimplexMqttNumber(CoordinatorEntity, NumberEntity):
@@ -164,7 +142,7 @@ class DimplexMqttNumber(CoordinatorEntity, NumberEntity):
     @property
     def available(self) -> bool:
         data = self.coordinator.data or {}
-        return self.entity_description.id in data
+        return self.coordinator.connected and self.entity_description.id in data
 
     @property
     def native_value(self):
