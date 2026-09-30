@@ -1,7 +1,7 @@
 {
     "domain": "dimplex_homeassistant_mqtt",
     "name": "Dimplex Home Assistant MQTT",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "documentation": "https://github.com/ConnectivityGDD/dimplex_homeassistant_mqtt",
     "issue_tracker": "https://github.com/ConnectivityGDD/dimplex_homeassistant_mqtt/issues",
     "codeowners": ["@GlenDimplexDeutschland"],
