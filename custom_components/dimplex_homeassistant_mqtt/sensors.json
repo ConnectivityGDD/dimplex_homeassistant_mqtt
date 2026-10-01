@@ -1423,13 +1423,11 @@
     "698d": {
       "id": "698d",
       "key": "A_Hk1_MiA",
-      "device_class": "running",
       "read_only": true
     },
     "699d": {
       "id": "699d",
       "key": "A_Hk1_MiZ",
-      "device_class": "running",
       "read_only": true
     },
     "1514d": {
@@ -1471,7 +1469,6 @@
     "1523d": {
       "id": "1523d",
       "key": "A_STF",
-      "device_class": "running",
       "read_only": true
     },
     "1510d": {
@@ -1483,49 +1480,41 @@
     "1528d": {
       "id": "1528d",
       "key": "A_Biv_MiA",
-      "device_class": "running",
       "read_only": true
     },
     "1529d": {
       "id": "1529d",
       "key": "A_Biv_MiZ",
-      "device_class": "running",
       "read_only": true
     },
     "1530d": {
       "id": "1530d",
       "key": "A_Reg_MiA",
-      "device_class": "running",
       "read_only": true
     },
     "1531d": {
       "id": "1531d",
       "key": "A_Reg_MiZ",
-      "device_class": "running",
       "read_only": true
     },
     "1532d": {
       "id": "1532d",
       "key": "A_Hk2_MiA",
-      "device_class": "running",
       "read_only": true
     },
     "1533d": {
       "id": "1533d",
       "key": "A_Hk2_MiZ",
-      "device_class": "running",
       "read_only": true
     },
-    "1454d": {
-      "id": "1454d",
+    "1534d": {
+      "id": "1534d",
       "key": "A_Hk3_MiA",
-      "device_class": "running",
       "read_only": true
     },
     "1535d": {
       "id": "1535d",
       "key": "A_Hk3_MiZ",
-      "device_class": "running",
       "read_only": true
     }
   },
@@ -1533,25 +1522,21 @@
     "1246d": {
       "id": "1246d",
       "key": "E_SmartGrid_1",
-      "device_class": "running",
       "read_only": true
     },
     "1247d": {
       "id": "1247d",
       "key": "E_SmartGrid_2",
-      "device_class": "running",
       "read_only": true
     },
     "1402d": {
       "id": "1402d",
       "key": "E_EVS",
-      "device_class": "running",
       "read_only": true
     },
     "1245d": {
       "id": "1245d",
       "key": "E_Sperr_Ext",
-      "device_class": "running",
       "read_only": true
     }
   },
