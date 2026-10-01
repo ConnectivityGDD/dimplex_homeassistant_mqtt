@@ -28,6 +28,180 @@
   },
   "entity": {
     "sensor": {
+      "E_T_Raum_51": {
+        "name": "Raumtemperatur 51"
+      },
+      "E_T_Raum_52": {
+        "name": "Raumtemperatur 52"
+      },
+      "E_T_Raum_53": {
+        "name": "Raumtemperatur 53"
+      },
+      "E_T_Raum_54": {
+        "name": "Raumtemperatur 54"
+      },
+      "E_T_Raum_55": {
+        "name": "Raumtemperatur 55"
+      },
+      "E_T_Raum_56": {
+        "name": "Raumtemperatur 56"
+      },
+      "E_T_Raum_57": {
+        "name": "Raumtemperatur 57"
+      },
+      "E_T_Raum_58": {
+        "name": "Raumtemperatur 58"
+      },
+      "E_T_Raum_59": {
+        "name": "Raumtemperatur 59"
+      },
+      "E_T_Raum_60": {
+        "name": "Raumtemperatur 60"
+      },
+      "E_T_Raum_61": {
+        "name": "Raumtemperatur 61"
+      },
+      "E_T_Raum_62": {
+        "name": "Raumtemperatur 62"
+      },
+      "E_T_Raum_63": {
+        "name": "Raumtemperatur 63"
+      },
+      "E_T_Raum_64": {
+        "name": "Raumtemperatur 64"
+      },
+      "E_T_Raum_65": {
+        "name": "Raumtemperatur 65"
+      },
+      "E_T_Raum_66": {
+        "name": "Raumtemperatur 66"
+      },
+      "E_T_Raum_67": {
+        "name": "Raumtemperatur 67"
+      },
+      "E_T_Raum_68": {
+        "name": "Raumtemperatur 68"
+      },
+      "E_T_Raum_69": {
+        "name": "Raumtemperatur 69"
+      },
+      "E_T_Raum_70": {
+        "name": "Raumtemperatur 70"
+      },
+      "E_T_Raum_71": {
+        "name": "Raumtemperatur 71"
+      },
+      "E_T_Raum_72": {
+        "name": "Raumtemperatur 72"
+      },
+      "E_T_Raum_73": {
+        "name": "Raumtemperatur 73"
+      },
+      "E_T_Raum_74": {
+        "name": "Raumtemperatur 74"
+      },
+      "E_T_Raum_75": {
+        "name": "Raumtemperatur 75"
+      },
+      "E_T_Raum_76": {
+        "name": "Raumtemperatur 76"
+      },
+      "E_T_Raum_77": {
+        "name": "Raumtemperatur 77"
+      },
+      "E_T_Raum_78": {
+        "name": "Raumtemperatur 78"
+      },
+      "E_T_Raum_79": {
+        "name": "Raumtemperatur 79"
+      },
+      "E_H_Raum_51": {
+        "name": "Raumfeuchte 51"
+      },
+      "E_H_Raum_52": {
+        "name": "Raumfeuchte 52"
+      },
+      "E_H_Raum_53": {
+        "name": "Raumfeuchte 53"
+      },
+      "E_H_Raum_54": {
+        "name": "Raumfeuchte 54"
+      },
+      "E_H_Raum_55": {
+        "name": "Raumfeuchte 55"
+      },
+      "E_H_Raum_56": {
+        "name": "Raumfeuchte 56"
+      },
+      "E_H_Raum_57": {
+        "name": "Raumfeuchte 57"
+      },
+      "E_H_Raum_58": {
+        "name": "Raumfeuchte 58"
+      },
+      "E_H_Raum_59": {
+        "name": "Raumfeuchte 59"
+      },
+      "E_H_Raum_60": {
+        "name": "Raumfeuchte 60"
+      },
+      "E_H_Raum_61": {
+        "name": "Raumfeuchte 61"
+      },
+      "E_H_Raum_62": {
+        "name": "Raumfeuchte 62"
+      },
+      "E_H_Raum_63": {
+        "name": "Raumfeuchte 63"
+      },
+      "E_H_Raum_64": {
+        "name": "Raumfeuchte 64"
+      },
+      "E_H_Raum_65": {
+        "name": "Raumfeuchte 65"
+      },
+      "E_H_Raum_66": {
+        "name": "Raumfeuchte 66"
+      },
+      "E_H_Raum_67": {
+        "name": "Raumfeuchte 67"
+      },
+      "E_H_Raum_68": {
+        "name": "Raumfeuchte 68"
+      },
+      "E_H_Raum_69": {
+        "name": "Raumfeuchte 69"
+      },
+      "E_H_Raum_70": {
+        "name": "Raumfeuchte 70"
+      },
+      "E_H_Raum_71": {
+        "name": "Raumfeuchte 71"
+      },
+      "E_H_Raum_72": {
+        "name": "Raumfeuchte 72"
+      },
+      "E_H_Raum_73": {
+        "name": "Raumfeuchte 73"
+      },
+      "E_H_Raum_74": {
+        "name": "Raumfeuchte 74"
+      },
+      "E_H_Raum_75": {
+        "name": "Raumfeuchte 75"
+      },
+      "E_H_Raum_76": {
+        "name": "Raumfeuchte 76"
+      },
+      "E_H_Raum_77": {
+        "name": "Raumfeuchte 77"
+      },
+      "E_H_Raum_78": {
+        "name": "Raumfeuchte 78"
+      },
+      "E_H_Raum_79": {
+        "name": "Raumfeuchte 79"
+      },
       "E_Aussen_T": {
         "name": "Außentemperatur"
       },
@@ -46,104 +220,77 @@
       "E_Vorl_T": {
         "name": "Vorlauftemperatur"
       },
-      "E_Rueckl_Soll_T": {
-        "name": "Rücklauf-Solltemperatur"
+      "Anz_HK1_Soll_Temp": {
+        "name": "Solltemperatur Heizkreis 1"
       },
-      "E_Ww_Soll_T": {
+      "Anz_Hk1_Ist_Temp": {
+        "name": "Temperatur Heizkreis 1"
+      },
+      "Anz_Ww_Soll": {
         "name": "Warmwasser-Solltemperatur"
       },
-      "E_Wq_Ein_T": {
+      "E_WqT_Ein": {
         "name": "Wärmequelleneintrittstemperatur"
       },
-      "E_Wq_Aus_T": {
+      "E_WqT_Aus": {
         "name": "Wärmequellenaustrittstemperatur"
       },
-      "E_HK2_Soll_T": {
+      "Anz_HK2_Soll_Temp": {
         "name": "Solltemperatur Heizkreis 2"
       },
-      "E_HK2_T": {
+      "Anz_Hk2_Ist_Temp": {
         "name": "Temperatur Heizkreis 2"
       },
-      "E_HK3_Soll_T": {
+      "Anz_HK3_Soll_Temp": {
         "name": "Solltemperatur Heizkreis 3"
       },
-      "E_HK3_T": {
+      "Anz_Hk3_Ist_Temp": {
         "name": "Temperatur Heizkreis 3"
       },
-      "E_Raum1_T": {
-        "name": "Raumtemperatur 1"
+      "E_T_Raum_50": {
+        "name": "Raumtemperatur 50"
       },
-      "E_Raum2_T": {
-        "name": "Raumtemperatur 2"
+      "P_Soll_Raum_50": {
+        "name": "Raumsolltemperatur 50"
       },
-      "E_Raum1_Feuchte": {
-        "name": "Raumfeuchte 1"
+      "E_H_Raum_50": {
+        "name": "Raumfeuchte 50"
       },
-      "E_Raum2_Feuchte": {
-        "name": "Raumfeuchte 2"
-      },
-      "E_Kuehlen_Vorl_T": {
+      "E_VorlT_KP": {
         "name": "Vorlauftemperatur Kühlen"
       },
-      "E_Kuehlen_Rueckl_T": {
+      "E_RuecklT_KP": {
         "name": "Rücklauftemperatur Kühlen"
       },
-      "E_Kuehlen_Primaer_T": {
-        "name": "Primärkreistemperatur Kühlen"
+      "E_Sole_Temp": {
+        "name": "Soletemperatur"
       },
-      "E_Kollektor_T": {
+      "E_KLF": {
         "name": "Kollektortemperatur"
       },
-      "E_Solarspeicher_T": {
+      "E_Sol_Speicher": {
         "name": "Temperatur Solarspeicher"
       },
-      "E_Lueftung_Aussen_T": {
+      "Luft_Temp_Aussenluft": {
         "name": "Außenlufttemperatur Lüftung"
       },
-      "E_Zuluft_T": {
+      "Luft_Temp_Zuluft": {
         "name": "Zulufttemperatur"
       },
-      "E_Abluft_T": {
+      "Luft_Temp_Abluft": {
         "name": "Ablufttemperatur"
       },
-      "E_Fortluft_T": {
+      "Luft_Temp_Fortluft": {
         "name": "Fortlufttemperatur"
       },
-      "E_Zuluft_Drehzahl": {
+      "Luft_Drehzahl_Zuluft": {
         "name": "Drehzahl Zuluftventilator"
       },
-      "E_Abluft_Drehzahl": {
+      "Luft_Drehzahl_Abluft": {
         "name": "Drehzahl Abluftventilator"
       },
       "E_Ww_Fuehl": {
         "name": "Warmwassertemperatur"
-      },
-      "E_Waermemenge_Heizen_1_4": {
-        "name": "Wärmemenge Heizen Stellen 1-4"
-      },
-      "E_Waermemenge_Heizen_5_8": {
-        "name": "Wärmemenge Heizen Stellen 5-8"
-      },
-      "E_Waermemenge_Heizen_9_12": {
-        "name": "Wärmemenge Heizen Stellen 9-12"
-      },
-      "E_Waermemenge_WW_1_4": {
-        "name": "Wärmemenge Warmwasser Stellen 1-4"
-      },
-      "E_Waermemenge_WW_5_8": {
-        "name": "Wärmemenge Warmwasser Stellen 5-8"
-      },
-      "E_Waermemenge_WW_9_12": {
-        "name": "Wärmemenge Warmwasser Stellen 9-12"
-      },
-      "E_Waermemenge_Schwimmbad_1_4": {
-        "name": "Wärmemenge Schwimmbad Stellen 1-4"
-      },
-      "E_Waermemenge_Schwimmbad_5_8": {
-        "name": "Wärmemenge Schwimmbad Stellen 5-8"
-      },
-      "E_Waermemenge_Schwimmbad_9_12": {
-        "name": "Wärmemenge Schwimmbad Stellen 9-12"
       },
       "Anz_Status_Wert": {
         "name": "Wärmepumpenstatus",
@@ -261,134 +408,161 @@
           "3": "Plus"
         }
       },
-      "B_Verdichter_1_Std": {
+      "BS_Vd1": {
         "name": "Laufzeit Verdichter 1"
       },
-      "B_Primaerpumpe_Std": {
-        "name": "Laufzeit Primärpumpe"
-      },
-      "B_Heizungspumpe_Std": {
-        "name": "Laufzeit Heizungspumpe"
-      },
-      "B_Zusatzpumpe_Std": {
-        "name": "Laufzeit Zusatzpumpe"
-      },
-      "B_Warmwasserpumpe_Std": {
-        "name": "Laufzeit Warmwasserpumpe"
-      },
-      "B_Verdichter_1_Std_Alt": {
-        "name": "Laufzeit Verdichter 1 (Register 1380)"
-      },
-      "B_Verdichter_2_Std": {
+      "BS_Vd2": {
         "name": "Laufzeit Verdichter 2"
       },
-      "B_Primaerpumpe_Ventilator_Std": {
-        "name": "Laufzeit Primärpumpe / Ventilator"
-      },
-      "B_Waermeerzeuger_2_Std": {
+      "BS_ZWE": {
         "name": "Laufzeit 2. Wärmeerzeuger"
       },
-      "B_Heizungspumpe_2_Std": {
-        "name": "Laufzeit Heizungspumpe 2"
+      "BS_PupVen": {
+        "name": "Laufzeit Ventilator"
       },
-      "B_Warmwasserpumpe_Std_Alt": {
-        "name": "Laufzeit Warmwasserpumpe (Register 1386)"
+      "BS_HUP": {
+        "name": "Laufzeit Heizungspumpe"
       },
-      "B_Flanschheizung_Std": {
+      "BS_WUP": {
+        "name": "Laufzeit Warmwasser"
+      },
+      "BS_THK": {
         "name": "Laufzeit Flanschheizung"
       },
-      "B_Schwimmbadpumpe_Std": {
+      "BS_SUP": {
         "name": "Laufzeit Schwimmbadpumpe"
       },
-      "B_Zusatzumwaelzpumpe_Std_Alt": {
-        "name": "Laufzeit Zusatzumwälzpumpe (Register 1390)"
+      "BS_VWV": {
+        "name": "Laufzeit Kühlbetrieb"
       },
-      "C_Verdichter_1_Gesamt": {
-        "name": "Taktungen Verdichter 1"
+      "BS_ZUP": {
+        "name": "Laufzeit Zusatzumwälzpumpe"
       },
-      "E_Erzeugt_Heizen": {
-        "name": "Erzeugte Wärmemenge Heizen"
+      "BS_Reg": {
+        "name": "Laufzeit Regenerativ"
       },
-      "E_Erzeugt_Heizen_Stellen_5_8": {
-        "name": "Erzeugte Heizenergie Stellen 5-8"
+      "BS_Vd1_SV": {
+        "name": "Taktungen Verdichter 1 gesamt"
       },
-      "E_Erzeugt_Heizen_Stellen_9_12": {
-        "name": "Erzeugte Heizenergie Stellen 9-12"
+      "BS_Vd1_SV_H": {
+        "name": "Taktungen Heizen"
       },
-      "E_Erzeugt_Heizen_Ges": {
-        "name": "Erzeugte Wärmemenge Heizen Gesamt"
+      "BS_Vd1_SV_WW": {
+        "name": "Taktungen Warmwasser"
       },
-      "E_Erzeugt_Heizen_Ges_Stellen_5_8": {
-        "name": "Erzeugte Heizenergie Gesamt Stellen 5-8"
+      "BS_Vd1_SV_SW": {
+        "name": "Taktungen Schwimmbad"
       },
-      "E_Erzeugt_Heizen_Ges_Stellen_9_12": {
-        "name": "Erzeugte Heizenergie Gesamt Stellen 9-12"
+      "BS_Vd1_SV_K": {
+        "name": "Taktungen Kühlen"
       },
-      "E_Erzeugt_WW": {
-        "name": "Erzeugte Wärmemenge Warmwasser"
+      "WMZ_Anz_G_ST1bis4": {
+        "name": "Wärmemenge gesamt"
       },
-      "E_Erzeugt_WW_Stellen_1_4": {
-        "name": "Erzeugte Warmwasserenergie Stellen 1-4"
-      },
-      "E_Erzeugt_WW_Stellen_5_8": {
-        "name": "Erzeugte Warmwasserenergie Stellen 5-8"
-      },
-      "E_Erzeugt_WW_Ges": {
-        "name": "Erzeugte Wärmemenge Warmwasser Gesamt"
-      },
-      "E_Erzeugt_WW_Ges_Stellen_1_4": {
-        "name": "Erzeugte Warmwasserenergie Gesamt Stellen 1-4"
-      },
-      "E_Erzeugt_WW_Ges_Stellen_5_8": {
-        "name": "Erzeugte Warmwasserenergie Gesamt Stellen 5-8"
-      },
-      "E_Erzeugt_WW_Ges_Stellen_9_12": {
-        "name": "Erzeugte Warmwasserenergie Gesamt Stellen 9-12"
-      },
-      "E_Waermemenge_Heizen": {
+      "WMZ_Anz_H_ST1bis4": {
         "name": "Wärmemenge Heizen"
       },
-      "E_Waermemenge_WW": {
+      "WMZ_Anz_WW_ST1bis4": {
         "name": "Wärmemenge Warmwasser"
       },
-      "E_Waermemenge_Schwimmbad": {
+      "WMZ_Anz_SW_ST1bis4": {
         "name": "Wärmemenge Schwimmbad"
       },
-      "E_Erzeugt_Heizen_Stellen_1_4": {
-        "name": "Erzeugte Heizenergie Stellen 1-4"
-      },
-      "E_Erzeugt_Heizen_Ges_Stellen_1_4": {
-        "name": "Erzeugte Heizenergie Gesamt Stellen 1-4"
-      },
-      "E_Erzeugt_WW_Ges_Stellen_5_8_alt": {
-        "name": "Erzeugte Warmwasserenergie Gesamt Stellen 5-8 (Alt)"
-      },
-      "E_Erzeugt_WW_Ges_Stellen_9_12_alt": {
-        "name": "Erzeugte Warmwasserenergie Gesamt Stellen 9-12 (Alt)"
-      },
-      "energy_heating_total": {
-        "name": "Elektrische Energie Heizen Gesamt"
-      },
-      "energy_hot_water_total": {
-        "name": "Elektrische Energie Warmwasser Gesamt"
-      },
-      "energy_pool_total": {
-        "name": "Elektrische Energie Schwimmbad Gesamt"
-      },
-      "energy_wmz_res_total": {
-        "name": "Erzeugte Wärmemenge Gesamt"
-      },
-      "energy_wmz_1_total": {
-        "name": "Erzeugte Wärmemenge Heizen"
-      },
-      "energy_wmz_2_total": {
-        "name": "Erzeugte Wärmemenge Heizen Gesamt"
-      },
-      "energy_wmz_3_total": {
-        "name": "Erzeugte Wärmemenge Warmwasser Gesamt"
+      "Qc_Anz_G_ST1bis4": {
+        "name": "Wärmemenge Umweltenergie"
       }
     },
     "number": {
+      "P_Soll_Raum_50": {
+        "name": "Raumsolltemperatur 50"
+      },
+      "P_Soll_Raum_51": {
+        "name": "Raumsolltemperatur 51"
+      },
+      "P_Soll_Raum_52": {
+        "name": "Raumsolltemperatur 52"
+      },
+      "P_Soll_Raum_53": {
+        "name": "Raumsolltemperatur 53"
+      },
+      "P_Soll_Raum_54": {
+        "name": "Raumsolltemperatur 54"
+      },
+      "P_Soll_Raum_55": {
+        "name": "Raumsolltemperatur 55"
+      },
+      "P_Soll_Raum_56": {
+        "name": "Raumsolltemperatur 56"
+      },
+      "P_Soll_Raum_57": {
+        "name": "Raumsolltemperatur 57"
+      },
+      "P_Soll_Raum_58": {
+        "name": "Raumsolltemperatur 58"
+      },
+      "P_Soll_Raum_59": {
+        "name": "Raumsolltemperatur 59"
+      },
+      "P_Soll_Raum_60": {
+        "name": "Raumsolltemperatur 60"
+      },
+      "P_Soll_Raum_61": {
+        "name": "Raumsolltemperatur 61"
+      },
+      "P_Soll_Raum_62": {
+        "name": "Raumsolltemperatur 62"
+      },
+      "P_Soll_Raum_63": {
+        "name": "Raumsolltemperatur 63"
+      },
+      "P_Soll_Raum_64": {
+        "name": "Raumsolltemperatur 64"
+      },
+      "P_Soll_Raum_65": {
+        "name": "Raumsolltemperatur 65"
+      },
+      "P_Soll_Raum_66": {
+        "name": "Raumsolltemperatur 66"
+      },
+      "P_Soll_Raum_67": {
+        "name": "Raumsolltemperatur 67"
+      },
+      "P_Soll_Raum_68": {
+        "name": "Raumsolltemperatur 68"
+      },
+      "P_Soll_Raum_69": {
+        "name": "Raumsolltemperatur 69"
+      },
+      "P_Soll_Raum_70": {
+        "name": "Raumsolltemperatur 70"
+      },
+      "P_Soll_Raum_71": {
+        "name": "Raumsolltemperatur 71"
+      },
+      "P_Soll_Raum_72": {
+        "name": "Raumsolltemperatur 72"
+      },
+      "P_Soll_Raum_73": {
+        "name": "Raumsolltemperatur 73"
+      },
+      "P_Soll_Raum_74": {
+        "name": "Raumsolltemperatur 74"
+      },
+      "P_Soll_Raum_75": {
+        "name": "Raumsolltemperatur 75"
+      },
+      "P_Soll_Raum_76": {
+        "name": "Raumsolltemperatur 76"
+      },
+      "P_Soll_Raum_77": {
+        "name": "Raumsolltemperatur 77"
+      },
+      "P_Soll_Raum_78": {
+        "name": "Raumsolltemperatur 78"
+      },
+      "P_Soll_Raum_79": {
+        "name": "Raumsolltemperatur 79"
+      },
       "P_HK1_WK": {
         "name": "1. Heizkreis Parallelverschiebung"
       },
@@ -407,58 +581,58 @@
       "P_WW_MIN_TEMP": {
         "name": "Minimale Warmwassertemperatur"
       },
-      "P_WW_Hysterese": {
+      "P_WW_HY": {
         "name": "Warmwasser Hysterese"
       },
-      "P_HK1_Raum_T": {
+      "P_HK1_RT_SOLL": {
         "name": "Raumtemperatur Sollwert Heizkreis 1"
       },
-      "P_HK1_Festwert_T": {
+      "P_HK1_FWR_SOLL": {
         "name": "Festwerttemperatur Heizkreis 1"
       },
-      "P_HK1_Heizkurvenendpunkt": {
+      "P_HK1_END": {
         "name": "Heizkurvenendpunkt Heizkreis 1"
       },
-      "P_HK1_Hysterese": {
-        "name": "Hysterese Heizkreis 1"
+      "P_HK_HYST": {
+        "name": "Heizen Hysterese Rücklaufsolltemp"
       },
-      "P_HK1_Kuehlung_15": {
-        "name": "Kühlung 15°C Heizkreis 1"
+      "P_Kuehl_Dyn_Soll_15": {
+        "name": "Solltemp. dyn. Kühlung bei 15°C AT"
       },
-      "P_HK1_Kuehlung_35": {
-        "name": "Kühlung 35°C Heizkreis 1"
+      "P_Kuehl_Dyn_Soll_35": {
+        "name": "Solltemp. dyn. Kühlung bei 30°C AT"
       },
-      "P_HK2_Heizkurvenendpunkt": {
+      "P_HK2_END": {
         "name": "Heizkurvenendpunkt Heizkreis 2"
       },
-      "P_HK2_Festwert_T": {
+      "P_HK2_FWR_SOLL": {
         "name": "Festwerttemperatur Heizkreis 2"
       },
-      "P_WZE_Mischer_Hysterese": {
-        "name": "Mischer Hysterese 2. Wärmeerzeuger"
+      "P_Biv_MIHY": {
+        "name": "Mischerhysterese"
       },
-      "P_WZE_Grenztemp_Parallel": {
+      "P_ESG_ZWE": {
         "name": "Grenztemperatur Parallelbetrieb 2. Wärmeerzeuger"
       },
-      "P_WZE_Grenztemp_Alternativ": {
+      "P_ESG_WP": {
         "name": "Grenztemperatur Alternativbetrieb 2. Wärmeerzeuger"
       },
-      "P_HK3_Heizkurvenendpunkt": {
+      "P_HK3_END": {
         "name": "Heizkurvenendpunkt Heizkreis 3"
       },
-      "P_HK3_Festwert_T": {
+      "P_HK3_FWR_SOLL": {
         "name": "Festwerttemperatur Heizkreis 3"
       },
-      "P_Anzahl_Partystunden": {
+      "P_PARTY_HOUR": {
         "name": "Anzahl Partystunden"
       },
-      "P_Anzahl_Urlaubstage": {
+      "P_URLAUB_TAGE": {
         "name": "Anzahl Urlaubstage"
       },
-      "P_Lueftung_Stufen": {
+      "P_Luft_Stufe": {
         "name": "Lüftungsstufe"
       },
-      "P_Lueftung_Stosslueften": {
+      "Luft_Zeit_Stoss": {
         "name": "Stoßlüften Dauer"
       }
     },
@@ -475,8 +649,8 @@
       "A_VEN": {
         "name": "Ventilator (M2)"
       },
-      "A_WZE2": {
-        "name": "2. Wärmeerzeuger"
+      "A_KESSEL": {
+        "name": "E10.2-3 Bivalent"
       },
       "A_PUP": {
         "name": "Primärpumpe (M11)"
@@ -484,10 +658,10 @@
       "A_HUP1": {
         "name": "Heizungspumpe (M13)"
       },
-      "A_Mischer1_Auf": {
+      "A_Hk1_MiA": {
         "name": "Mischer Heizkreis 1 auf"
       },
-      "A_Mischer1_Zu": {
+      "A_Hk1_MiZ": {
         "name": "Mischer Heizkreis 1 zu"
       },
       "A_HUP2": {
@@ -496,10 +670,10 @@
       "A_HUP3": {
         "name": "Heizungspumpe (M20)"
       },
-      "A_Schwimmbadpumpe": {
+      "A_SUP": {
         "name": "Schwimmbadpumpe"
       },
-      "A_Kuehlpumpe": {
+      "A_KUP": {
         "name": "Kühlpumpe"
       },
       "A_ZUP": {
@@ -511,49 +685,43 @@
       "A_STF": {
         "name": "Störung H5"
       },
-      "A_Flanschheizung": {
+      "A_FH": {
         "name": "Flanschheizung"
       },
-      "A_Primaerpumpe_Kuehlen": {
-        "name": "Primärpumpe Kühlen"
-      },
-      "A_Raumthermostate_Umschaltung": {
-        "name": "Raumthermostat-Umschaltung Heizen/Kühlen"
-      },
-      "A_Mischer_Bivalent_Auf": {
+      "A_Biv_MiA": {
         "name": "Bivalenter Mischer auf"
       },
-      "A_Mischer_Bivalent_Zu": {
+      "A_Biv_MiZ": {
         "name": "Bivalenter Mischer zu"
       },
-      "A_Mischer_Regenerativ_Auf": {
+      "A_Reg_MiA": {
         "name": "Regenerativer Mischer auf"
       },
-      "A_Mischer_Regenerativ_Zu": {
+      "A_Reg_MiZ": {
         "name": "Regenerativer Mischer zu"
       },
-      "A_Mischer2_Auf": {
+      "A_Hk2_MiA": {
         "name": "Mischer Heizkreis 2 auf"
       },
-      "A_Mischer2_Zu": {
+      "A_Hk2_MiZ": {
         "name": "Mischer Heizkreis 2 zu"
       },
-      "A_Mischer3_Auf": {
+      "A_Hk3_MiA": {
         "name": "Mischer Heizkreis 3 auf"
       },
-      "A_Mischer3_Zu": {
+      "A_Hk3_MiZ": {
         "name": "Mischer Heizkreis 3 zu"
       },
-      "E_Smart_Grid_1": {
+      "E_SmartGrid_1": {
         "name": "Smart-Grid-Eingang 1"
       },
-      "E_Smart_Grid_2": {
+      "E_SmartGrid_2": {
         "name": "Smart-Grid-Eingang 2"
       },
-      "E_EVU_Sperre": {
+      "E_EVS": {
         "name": "EVU-Sperre"
       },
-      "E_Sperre_Extern": {
+      "E_Sperr_Ext": {
         "name": "Externe Sperre"
       }
     },

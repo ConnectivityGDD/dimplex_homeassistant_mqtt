@@ -12,21 +12,11 @@ from homeassistant.components.binary_sensor import (
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import DOMAIN
-
+from .utils.discovery import discover_entities
+from .utils.translations_helper import get_translations
 
 BINARY_SENSOR_CONFIG_FILE = Path(__file__).parent / "sensors.json"
 TRANSLATION_DIR = Path(__file__).parent / "translations"
-
-
-def _load_translations(language: str) -> dict[str, Any]:
-    path = TRANSLATION_DIR / f"{language}.json"
-    if not path.exists():
-        path = TRANSLATION_DIR / "en.json"
-    try:
-        with path.open("r", encoding="utf-8") as file:
-            return json.load(file)
-    except (OSError, json.JSONDecodeError):
-        return {}
 
 DEVICE_CLASSES = {
     "connectivity": BinarySensorDeviceClass.CONNECTIVITY,
@@ -75,7 +65,7 @@ def _load_binary_sensor_descriptions():
                 id=item["id"],
                 translation_key=item.get("translation_key", item["key"]),
                 device_class=DEVICE_CLASSES.get(
-                    item.get("device_class", "running")
+                    item.get("device_class", None)
                 ),
                 read_only=item.get("read_only", True),
                     hidden=item.get("hidden", False),
@@ -90,34 +80,18 @@ BINARY_SENSOR_DESCRIPTIONS = _load_binary_sensor_descriptions()
 
 async def async_setup_entry(hass, entry, async_add_entities):
     coordinator = hass.data[DOMAIN][entry.entry_id]
+    installer_access = coordinator.config.get("installer_access", False)
+    async_add_entities([DimplexMqttConnectionSensor(coordinator)])
 
-    async_add_entities([DimplexMqttConnectionSensor(coordinator),])
-
-    added: set[str] = set()
-
-    def add_new_binary_sensors():
-        data = coordinator.data or {}
-        new_entities = []
-
-        for description in BINARY_SENSOR_DESCRIPTIONS:
-            if description.hidden and not coordinator.config.get(
-                "installer_access", False
-            ):
-                continue
-            if description.id in data and description.id not in added:
-                added.add(description.id)
-                new_entities.append(
-                    DimplexMqttBinarySensor(
-                        coordinator,
-                        description,
-                    )
-                )
-
-        if new_entities:
-            async_add_entities(new_entities)
-
-    add_new_binary_sensors()
-    coordinator.async_add_listener(add_new_binary_sensors)
+    discover_entities(
+        coordinator,
+        entry,
+        (description for description in BINARY_SENSOR_DESCRIPTIONS
+         if not description.hidden or installer_access),
+        lambda description: description.id,
+        lambda description: DimplexMqttBinarySensor(coordinator, description),
+        async_add_entities,
+    )
 
 
 class DimplexMqttBinarySensor(CoordinatorEntity, BinarySensorEntity):
@@ -129,7 +103,7 @@ class DimplexMqttBinarySensor(CoordinatorEntity, BinarySensorEntity):
         self.entity_description = description
         self._attr_has_entity_name = False
         self._attr_translation_key = description.translation_key
-        translations = _load_translations(
+        translations = get_translations(
             (coordinator.hass.config.language or "en").split("-")[0]
         )
         entities = translations.get("entity", {})
@@ -152,7 +126,7 @@ class DimplexMqttBinarySensor(CoordinatorEntity, BinarySensorEntity):
     @property
     def available(self):
         data = self.coordinator.data or {}
-        return self.entity_description.id in data
+        return self.coordinator.connected and self.entity_description.id in data
 
     @property
     def is_on(self):
@@ -174,7 +148,7 @@ class DimplexMqttConnectionSensor(
         super().__init__(coordinator)
 
         self._attr_has_entity_name = True
-        self._attr_name = "MQTT Connection"
+        self._attr_translation_key = "mqtt_connection"
         self._attr_unique_id = (
             f"{coordinator.device_id}_mqtt_connection"
         )
@@ -195,5 +169,9 @@ class DimplexMqttConnectionSensor(
         }
 
     @property
+    def available(self):
+        return True
+
+    @property
     def is_on(self):
-        return self.coordinator.client.connected
+        return self.coordinator.connected

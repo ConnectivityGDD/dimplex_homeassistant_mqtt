@@ -1,7 +1,7 @@
 """Sensor platform for Dimplex MQTT."""
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import json
 from pathlib import Path
 from typing import Any
@@ -21,10 +21,11 @@ from homeassistant.const import (
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import DOMAIN
-from .coordinator import DimplexMqttCoordinator
+from .utils.discovery import discover_entities
+from .coordinator import ENERGY_MAPPINGS, DimplexMqttCoordinator
+from .utils.translations_helper import get_translations
 
 SENSOR_CONFIG_FILE = Path(__file__).parent / "sensors.json"
-TRANSLATION_DIR = Path(__file__).parent / "translations"
 
 DEVICE_CLASSES = {
     "temperature": SensorDeviceClass.TEMPERATURE,
@@ -56,35 +57,12 @@ class DimplexMqttSensorEntityDescription(SensorEntityDescription):
     scale: float = 1.0
     installer_only: bool = False
 
-
-def _load_translation_file(language: str) -> dict[str, Any]:
-    path = TRANSLATION_DIR / f"{language}.json"
-
-    if not path.exists():
-        path = TRANSLATION_DIR / "en.json"
-
-    if not path.exists():
-        return {}
-
-    try:
-        with path.open("r", encoding="utf-8") as file:
-            return json.load(file)
-    except Exception:
-        return {}
-
-
-TRANSLATIONS = {
-    "en": _load_translation_file("en"),
-    "de": _load_translation_file("de"),
-}
-
-
 def _translate_sensor_state(
     language: str,
     translation_key: str,
     raw_value: Any,
 ) -> str | None:
-    translations = TRANSLATIONS.get(language) or TRANSLATIONS.get("en", {})
+    translations = get_translations(language)
 
     return (
         translations
@@ -148,53 +126,37 @@ def _load_sensor_descriptions():
             )
         )
 
-    return tuple(descriptions)
+    descriptions_by_key = {description.key: description for description in descriptions}
+    energy_registers = {
+        register for registers in ENERGY_MAPPINGS.values() for register in registers
+    }
+    combined_descriptions = [
+        replace(descriptions_by_key[registers[0]], key=target)
+        for target, registers in ENERGY_MAPPINGS.items()
+    ]
+
+    return tuple(
+        description for description in descriptions
+        if description.key not in energy_registers
+    ) + tuple(combined_descriptions)
 
 
 SENSOR_DESCRIPTIONS = _load_sensor_descriptions()
 
 
 async def async_setup_entry(hass, entry, async_add_entities):
-    coordinator: DimplexMqttCoordinator = hass.data[DOMAIN][entry.entry_id]
-
-    added: set[str] = set()
+    coordinator = hass.data[DOMAIN][entry.entry_id]
     installer_access = coordinator.config.get("installer_access", False)
 
-    # Roh-Register der einzelnen Stellen, die NICHT als eigene Sensoren angelegt werden sollen
-    IGNORED_RAW_KEYS = {
-        # Elektrische Energie Einzelstellen
-        "1300u", "1301u", "1302u",
-        "1303u", "1304u", "1305u",
-        "1306u", "1307u", "1308u",
-        # WMZ Einzelstellen
-        "1672i", "1673i", "1674i",  # Heizen
-        "1660i", "1661i", "1662i",  # Gesamt
-        "1663i", "1664i", "1665i",  # Warmwasser
-        "1669i", "1670i", "1671i",  # Kühlung / Weitere
-    }
-
-    def add_new_sensors():
-        data = coordinator.data or {}
-        new_entities = []
-
-        for description in SENSOR_DESCRIPTIONS:
-            # Ignoriere die Roh-Register der Einzelstellen
-            if description.key in IGNORED_RAW_KEYS:
-                continue
-
-            if description.installer_only and not installer_access:
-                continue
-
-            # Sensor wird NUR angelegt, wenn er tatsächlich im Data-Dict vorhanden ist
-            if description.key in data and description.key not in added:
-                added.add(description.key)
-                new_entities.append(DimplexMqttSensor(coordinator, description))
-
-        if new_entities:
-            async_add_entities(new_entities)
-
-    add_new_sensors()
-    coordinator.async_add_listener(add_new_sensors)
+    discover_entities(
+        coordinator,
+        entry,
+        (description for description in SENSOR_DESCRIPTIONS
+         if not description.installer_only or installer_access),
+        lambda description: description.key,
+        lambda description: DimplexMqttSensor(coordinator, description),
+        async_add_entities,
+    )
 
 
 class DimplexMqttSensor(CoordinatorEntity[DimplexMqttCoordinator], SensorEntity):
@@ -221,7 +183,7 @@ class DimplexMqttSensor(CoordinatorEntity[DimplexMqttCoordinator], SensorEntity)
 
     @property
     def available(self) -> bool:
-        if not self.coordinator.last_update_success:
+        if not self.coordinator.connected or not self.coordinator.last_update_success:
             return False
         data = self.coordinator.data or {}
         return self.entity_description.key in data
