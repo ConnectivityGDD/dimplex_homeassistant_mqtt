@@ -1350,7 +1350,7 @@
   },
   "status": {
     "530i": {
-      "id": "1586i",
+      "id": "530i",
       "key": "Anz_Status_Wert",
       "read_only": true
     },
