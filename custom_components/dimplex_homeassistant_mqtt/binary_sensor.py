@@ -65,7 +65,7 @@ def _load_binary_sensor_descriptions():
                 id=item["id"],
                 translation_key=item.get("translation_key", item["key"]),
                 device_class=DEVICE_CLASSES.get(
-                    item.get("device_class", "running")
+                    item.get("device_class", None)
                 ),
                 read_only=item.get("read_only", True),
                     hidden=item.get("hidden", False),
