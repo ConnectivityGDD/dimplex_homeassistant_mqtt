@@ -294,10 +294,20 @@ class DimplexMqttClient:
                 converted = self._convert_typed_value(raw_value, data_type)
 
                 for candidate in {str(key), str(raw_id), str(name)}:
-                    if candidate:
-                        result[candidate] = converted
-                        if candidate[-1:] in ("i", "u"):
-                            result[candidate[:-1] + ("u" if candidate[-1] == "i" else "i")] = converted
+                    if not candidate:
+                        continue
+
+                    value = converted
+
+                    if candidate.endswith("i") and value < 0:
+                        value &= 0xFFFF
+
+                    result[candidate] = value
+
+                    if candidate.endswith(("i", "u")):
+                        base = candidate[:-1]
+                        result[base + "i"] = value
+                        result[base + "u"] = value
 
         return result
 
