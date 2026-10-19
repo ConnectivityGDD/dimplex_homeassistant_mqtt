@@ -297,17 +297,17 @@ class DimplexMqttClient:
                     if not candidate:
                         continue
 
-                    value = converted
-
-                    if candidate.endswith("i") and value < 0:
-                        value &= 0xFFFF
-
-                    result[candidate] = value
+                    result[candidate] = converted
 
                     if candidate.endswith(("i", "u")):
                         base = candidate[:-1]
-                        result[base + "i"] = value
-                        result[base + "u"] = value
+
+                        result[base + "i"] = converted
+
+                        if candidate.endswith("i") and converted < 0:
+                            result[base + "u"] = converted & 0xFFFF
+                        else:
+                            result[base + "u"] = converted
 
         return result
 
@@ -319,28 +319,17 @@ class DimplexMqttClient:
         if data_type == "bool":
             return str(value) in ("1", "true", "True")
 
-        if data_type in ("int16", "int32", "uint16", "uint32"):
-            try:
-                return int(value)
-            except (TypeError, ValueError):
-                return value
-
-        if data_type in ("float", "float32", "float64", "double"):
-            try:
-                return float(value)
-            except (TypeError, ValueError):
-                return value
-
-        if isinstance(value, (int, float)):
-            return value
-
         try:
             return int(value)
         except (TypeError, ValueError):
-            try:
-                return float(value)
-            except (TypeError, ValueError):
-                return value
+            pass
+
+        try:
+            return float(value)
+        except (TypeError, ValueError):
+            pass
+
+        return value
             
 
     def write_variable(self, variable_id: str, value) -> None:
