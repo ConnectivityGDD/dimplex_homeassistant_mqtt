@@ -1150,7 +1150,7 @@
       "unit": "celsius",
       "state_class": "measurement",
       "read_only": false,
-      "min": 30,
+      "min": 10,
       "max": 60
     },
     "1044i": {
@@ -1160,7 +1160,7 @@
       "unit": "celsius",
       "state_class": "measurement",
       "read_only": false,
-      "min": 30,
+      "min": 10,
       "max": 85
     },
     "1045i": {
