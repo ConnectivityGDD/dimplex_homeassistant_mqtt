@@ -444,6 +444,7 @@
     "502a": {
       "id": "502a",
       "key": "P_Soll_Raum_50",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -455,6 +456,7 @@
     "504a": {
       "id": "504a",
       "key": "P_Soll_Raum_51",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -466,6 +468,7 @@
     "506a": {
       "id": "506a",
       "key": "P_Soll_Raum_52",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -477,6 +480,7 @@
     "508a": {
       "id": "508a",
       "key": "P_Soll_Raum_53",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -488,6 +492,7 @@
     "510a": {
       "id": "510a",
       "key": "P_Soll_Raum_54",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -499,6 +504,7 @@
     "512a": {
       "id": "512a",
       "key": "P_Soll_Raum_55",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -510,6 +516,7 @@
     "514a": {
       "id": "514a",
       "key": "P_Soll_Raum_56",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -521,6 +528,7 @@
     "516a": {
       "id": "516a",
       "key": "P_Soll_Raum_57",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -532,6 +540,7 @@
     "518a": {
       "id": "518a",
       "key": "P_Soll_Raum_58",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -543,6 +552,7 @@
     "520a": {
       "id": "520a",
       "key": "P_Soll_Raum_59",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -554,6 +564,7 @@
     "522a": {
       "id": "522a",
       "key": "P_Soll_Raum_60",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -565,6 +576,7 @@
     "524a": {
       "id": "524a",
       "key": "P_Soll_Raum_61",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -576,6 +588,7 @@
     "526a": {
       "id": "526a",
       "key": "P_Soll_Raum_62",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -587,6 +600,7 @@
     "528a": {
       "id": "528a",
       "key": "P_Soll_Raum_63",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -598,6 +612,7 @@
     "530a": {
       "id": "530a",
       "key": "P_Soll_Raum_64",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -609,6 +624,7 @@
     "532a": {
       "id": "532a",
       "key": "P_Soll_Raum_65",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -620,6 +636,7 @@
     "534a": {
       "id": "534a",
       "key": "P_Soll_Raum_66",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -631,6 +648,7 @@
     "536a": {
       "id": "536a",
       "key": "P_Soll_Raum_67",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -642,6 +660,7 @@
     "538a": {
       "id": "538a",
       "key": "P_Soll_Raum_68",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -653,6 +672,7 @@
     "540a": {
       "id": "540a",
       "key": "P_Soll_Raum_69",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -664,6 +684,7 @@
     "542a": {
       "id": "542a",
       "key": "P_Soll_Raum_70",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -675,6 +696,7 @@
     "544a": {
       "id": "544a",
       "key": "P_Soll_Raum_74",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -686,6 +708,7 @@
     "546a": {
       "id": "546a",
       "key": "P_Soll_Raum_75",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -697,6 +720,7 @@
     "548a": {
       "id": "548a",
       "key": "P_Soll_Raum_76",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -708,6 +732,7 @@
     "550a": {
       "id": "550a",
       "key": "P_Soll_Raum_77",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -719,6 +744,7 @@
     "552a": {
       "id": "552a",
       "key": "P_Soll_Raum_78",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -730,6 +756,7 @@
     "554a": {
       "id": "554a",
       "key": "P_Soll_Raum_79",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -741,6 +768,7 @@
     "557a": {
       "id": "557a",
       "key": "P_Soll_Raum_71",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -752,6 +780,7 @@
     "559a": {
       "id": "559a",
       "key": "P_Soll_Raum_72",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
@@ -763,6 +792,7 @@
     "561a": {
       "id": "561a",
       "key": "P_Soll_Raum_73",
+      "step": 0.5,
       "min": 10,
       "max": 40,
       "device_class": "temperature",
