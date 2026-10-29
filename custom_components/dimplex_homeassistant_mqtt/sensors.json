@@ -774,6 +774,7 @@
     "1240i": {
       "id": "1240i",
       "key": "E_H_Raum_50",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -783,6 +784,7 @@
     "1241i": {
       "id": "1241i",
       "key": "E_H_Raum_51",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -792,6 +794,7 @@
     "1242i": {
       "id": "1242i",
       "key": "E_H_Raum_52",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -801,6 +804,7 @@
     "1243i": {
       "id": "1243i",
       "key": "E_H_Raum_53",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -810,6 +814,7 @@
     "1245i": {
       "id": "1245i",
       "key": "E_H_Raum_54",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -819,6 +824,7 @@
     "1244i": {
       "id": "1244i",
       "key": "E_H_Raum_55",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -828,6 +834,7 @@
     "1246i": {
       "id": "1246i",
       "key": "E_H_Raum_56",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -837,6 +844,7 @@
     "1247i": {
       "id": "1247i",
       "key": "E_H_Raum_57",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -846,6 +854,7 @@
     "1248i": {
       "id": "1248i",
       "key": "E_H_Raum_58",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -855,6 +864,7 @@
     "1249i": {
       "id": "1249i",
       "key": "E_H_Raum_59",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -864,6 +874,7 @@
     "1250i": {
       "id": "1250i",
       "key": "E_H_Raum_60",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -873,6 +884,7 @@
     "1251i": {
       "id": "1251i",
       "key": "E_H_Raum_61",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -882,6 +894,7 @@
     "1252i": {
       "id": "1252i",
       "key": "E_H_Raum_62",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -891,6 +904,7 @@
     "1253i": {
       "id": "1253i",
       "key": "E_H_Raum_63",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -900,6 +914,7 @@
     "1255i": {
       "id": "1255i",
       "key": "E_H_Raum_64",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -909,6 +924,7 @@
     "1257i": {
       "id": "1257i",
       "key": "E_H_Raum_65",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -918,6 +934,7 @@
     "1256i": {
       "id": "1256i",
       "key": "E_H_Raum_66",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -927,6 +944,7 @@
     "1258i": {
       "id": "1258i",
       "key": "E_H_Raum_67",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -936,6 +954,7 @@
     "1259i": {
       "id": "1259i",
       "key": "E_H_Raum_68",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -945,6 +964,7 @@
     "1264i": {
       "id": "1264i",
       "key": "E_H_Raum_69",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -954,6 +974,7 @@
     "1265i": {
       "id": "1265i",
       "key": "E_H_Raum_70",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -963,6 +984,7 @@
     "1267i": {
       "id": "1267i",
       "key": "E_H_Raum_71",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -972,6 +994,7 @@
     "1270i": {
       "id": "1270i",
       "key": "E_H_Raum_72",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -981,6 +1004,7 @@
     "1271i": {
       "id": "1271i",
       "key": "E_H_Raum_73",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -990,6 +1014,7 @@
     "1272i": {
       "id": "1272i",
       "key": "E_H_Raum_74",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -999,6 +1024,7 @@
     "1273i": {
       "id": "1273i",
       "key": "E_H_Raum_75",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -1008,6 +1034,7 @@
     "1274i": {
       "id": "1274i",
       "key": "E_H_Raum_76",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -1017,6 +1044,7 @@
     "1275i": {
       "id": "1275i",
       "key": "E_H_Raum_77",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -1026,6 +1054,7 @@
     "1277i": {
       "id": "1277i",
       "key": "E_H_Raum_78",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
@@ -1035,6 +1064,7 @@
     "1278i": {
       "id": "1278i",
       "key": "E_H_Raum_79",
+      "scale": 0.1,
       "device_class": "humidity",
       "unit": "%",
       "state_class": "measurement",
