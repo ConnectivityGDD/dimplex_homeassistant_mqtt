@@ -470,6 +470,24 @@
       },
       "Qc_Anz_G_ST1bis4": {
         "name": "Wärmemenge Umweltenergie"
+      },
+      "E_DRUCK_ND": {
+        "name": "Niederdrucksensor"
+      },
+      "E_DRUCK_HD": {
+        "name": "Hochdrucksensor"
+      },
+      "E_Sek_Druck": {
+        "name": "Heizwasser Anlagendruck"
+      },
+      "E_DfSen_Sek": {
+        "name": "Durchfluss"
+      },
+      "WPIO2_r_ECT_Comp_Hz": {
+        "name": "Inverterfrequenz"
+      },
+      "INV_Comp_Hz": {
+        "name": "Inverterfrequenz"
       }
     },
     "number": {

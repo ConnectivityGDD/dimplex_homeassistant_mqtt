@@ -17,6 +17,9 @@ from homeassistant.const import (
     UnitOfEnergy,
     UnitOfTemperature,
     UnitOfTime,
+    UnitOfPressure,
+    UnitOfVolumeFlowRate,
+    UnitOfFrequency
 )
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
@@ -32,6 +35,9 @@ DEVICE_CLASSES = {
     "duration": SensorDeviceClass.DURATION,
     "energy": SensorDeviceClass.ENERGY,
     "humidity": SensorDeviceClass.HUMIDITY,
+    "pressure": SensorDeviceClass.PRESSURE,
+    "frequency": SensorDeviceClass.FREQUENCY,
+    "volume_flow_rate": SensorDeviceClass.VOLUME_FLOW_RATE
 }
 
 STATE_CLASSES = {
@@ -49,6 +55,9 @@ UNITS = {
     "kWh": UnitOfEnergy.KILO_WATT_HOUR,
     "%": PERCENTAGE,
     "rpm": "rpm",
+    "bar": UnitOfPressure.BAR,
+    "L/h": UnitOfVolumeFlowRate.LITERS_PER_MINUTE, #assuming all flow rates are L/h from Mqtt
+    "Hz": UnitOfFrequency.HERTZ
 }
 
 
@@ -208,10 +217,17 @@ class DimplexMqttSensor(CoordinatorEntity[DimplexMqttCoordinator], SensorEntity)
         if translated is not None:
             return translated
 
-        if desc.scale != 1.0:
-            try:
-                return round(float(raw_value) * desc.scale, 2)
-            except (TypeError, ValueError):
-                return raw_value
+        try:
+            value = float(raw_value)
 
-        return raw_value
+            if desc.scale != 1.0:
+                value *= desc.scale
+
+            # Convert only volume flow rate sensors reporting L/h
+            if desc.device_class == SensorDeviceClass.VOLUME_FLOW_RATE:
+                value /= 60.0
+
+            return round(value, 2)
+
+        except (TypeError, ValueError):
+            return raw_value

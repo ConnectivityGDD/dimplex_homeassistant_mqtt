@@ -470,6 +470,24 @@
       },
       "Qc_Anz_G_ST1bis4": {
         "name": "Environmental Heat Quantity"
+      },
+      "E_DRUCK_ND": {
+        "name": "Low Pressure Sensor"
+      },
+      "E_DRUCK_HD": {
+        "name": "High Pressure Sensor"
+      },
+      "E_Sek_Druck": {
+        "name": "Heating water system pressure"
+      },
+      "E_DfSen_Sek": {
+        "name": "Flow Rate"
+      },
+      "WPIO2_r_ECT_Comp_Hz": {
+        "name": "Inverter Frequency"
+      },
+      "INV_Comp_Hz": {
+        "name": "Inverter Frequency"
       }
     },
     "number": {

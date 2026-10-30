@@ -138,6 +138,24 @@
       "state_class": "measurement",
       "read_only": true,
       "scale": 0.1
+    },
+    "1550i": {
+      "id": "1550i",
+      "key": "WPIO2_r_ECT_Comp_Hz",
+      "device_class": "frequency",
+      "unit": "Hz",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_wp_inv"
+    },
+    "3048i": {
+      "id": "3048i",
+      "key": "INV_Comp_Hz",
+      "device_class": "frequency",
+      "unit": "Hz",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_wp_inv"
     }
   },
   "room_control": {
@@ -1842,6 +1860,44 @@
       "unit": "kWh",
       "state_class": "total_increasing",
       "read_only": true
+    }
+  },
+  "flow":{
+    "4865a": {
+      "id": "4865a",
+      "key": "E_DRUCK_ND",
+      "device_class": "pressure",
+      "unit": "bar",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_wp"
+    },
+    "1280a": {
+      "id": "1280a",
+      "key": "E_DRUCK_HD",
+      "device_class": "pressure",
+      "unit": "bar",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_wp_2ds"
+    },
+    "556a": {
+      "id": "556a",
+      "key": "E_Sek_Druck",
+      "device_class": "pressure",
+      "unit": "bar",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_on"
+    },
+    "1472i": {
+      "id": "1472i",
+      "key": "E_DfSen_Sek",
+      "device_class": "volume_flow_rate",
+      "unit": "L/h",
+      "state_class": "measurement",
+      "read_only": true,
+      "condition": "cond_wp_df"
     }
   }
 }
